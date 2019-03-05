@@ -8,6 +8,7 @@ import Resources.Images;
 import Resources.MusicHandler;
 
 import java.awt.*;
+import java.awt.event.KeyEvent;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 
@@ -181,6 +182,15 @@ public class GameSetUp implements Runnable {
             e.printStackTrace();
         }
     }
+    
+    public void debugKey() {
+		if (handler.getKeyManager().keyJustPressed(KeyEvent.VK_F7)) {
+			DEBUGMODE = true;
+		}
+		else if (handler.getKeyManager().keyJustPressed(KeyEvent.VK_6)) {
+			DEBUGMODE = false;
+		}
+	}
 
     public KeyManager getKeyManager(){
         return keyManager;

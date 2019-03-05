@@ -70,6 +70,7 @@ public class Player extends BaseDynamicEntity implements Fighter {
 
 			UpdateNextMove();
 			PlayerInput();
+			handler.getGame().debugKey();
 
 			if (GameSetUp.SWITCHING) {
 				switchingCoolDown++;
