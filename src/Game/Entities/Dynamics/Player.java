@@ -210,9 +210,9 @@ public class Player extends BaseDynamicEntity implements Fighter {
 							GameSetUp.LOADING = true;
 							handler.setArea("Cave");
 							
-	                        handler.getGame().getMusicHandler().set_changeMusic("res/music/Cave.mp3");
-	                        handler.getGame().getMusicHandler().play();
-	                        handler.getGame().getMusicHandler().setVolume(0.4);
+//	                        handler.getGame().getMusicHandler().set_changeMusic("res/music/Cave.mp3");
+//	                        handler.getGame().getMusicHandler().play();
+//	                        handler.getGame().getMusicHandler().setVolume(0.4);
 							
 							State.setState(handler.getGame().inWorldState.setArea(InWorldState.caveArea));
 						}
@@ -256,9 +256,9 @@ public class Player extends BaseDynamicEntity implements Fighter {
 							GameSetUp.LOADING = true;
 							handler.setArea("None");
 							
-	                    	handler.getGame().getMusicHandler().set_changeMusic("res/music/OverWorld.mp3");
-	                        handler.getGame().getMusicHandler().play();
-	                        handler.getGame().getMusicHandler().setVolume(0.2);
+//	                    	handler.getGame().getMusicHandler().set_changeMusic("res/music/OverWorld.mp3");
+//	                        handler.getGame().getMusicHandler().play();
+//	                        handler.getGame().getMusicHandler().setVolume(0.2);
 							
 							State.setState(handler.getGame().mapState);
 							CaveArea.isInCave = false;
@@ -380,7 +380,7 @@ public class Player extends BaseDynamicEntity implements Fighter {
 	double health = 200, mana = 100, xp = 0, lvl = 1, defense = 16, str = 10, intl = 25, mr = 12, cons = 20, acc = 12, evs = 4,
 			initiative = 13, maxHealth = 200, maxMana = 100, lvlUpExp = 200;
 
-	String Class = "none", skill = "Freeze";
+	String Class = "none", skill = "none"; //the player starts with no skill
 	String[] buffs = {}, debuffs = {};
 
 	@Override

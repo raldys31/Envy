@@ -201,9 +201,9 @@ public class UIListener extends InWorldState{
 				}
 				State.setState(handler.getGame().menuState);
 				handler.getGame().reStart();
-				handler.getGame().getMusicHandler().set_changeMusic("res/music/Overture.mp3");
-				handler.getGame().getMusicHandler().play();
-				handler.getGame().getMusicHandler().setVolume(0.1);
+//				handler.getGame().getMusicHandler().set_changeMusic("res/music/Overture.mp3");
+//				handler.getGame().getMusicHandler().play();
+//				handler.getGame().getMusicHandler().setVolume(0.1);
 			}
 		}
 	}
@@ -350,11 +350,11 @@ public class UIListener extends InWorldState{
 		if (handler.getKeyManager().down || handler.getKeyManager().up) {}
 		if (handler.getKeyManager().right && inputCoolDown > 15){
 
-			if(!handler.getGame().getMusicHandler().getEPlayer().isEmpty()&&!handler.getGame().getMusicHandler().getEffect(0).equals(null)) {
-				handler.getGame().getMusicHandler().stopEffect(0);
-			}
-
-			handler.getGame().getMusicHandler().playEffect("res/music/selectBeep.wav",0);
+//			if(!handler.getGame().getMusicHandler().getEPlayer().isEmpty()&&!handler.getGame().getMusicHandler().getEffect(0).equals(null)) {
+//				handler.getGame().getMusicHandler().stopEffect(0);
+//			}
+//
+//			handler.getGame().getMusicHandler().playEffect("res/music/selectBeep.wav",0);
 
 			if(optionSelect < uiManager.getObjects().size()-1 ) {
 				optionSelect++;
@@ -364,11 +364,11 @@ public class UIListener extends InWorldState{
 		}
 		if (handler.getKeyManager().left && inputCoolDown > 15){
 
-			if(!handler.getGame().getMusicHandler().getEPlayer().isEmpty()&&!handler.getGame().getMusicHandler().getEffect(0).equals(null)) {
-				handler.getGame().getMusicHandler().stopEffect(0);
-			}
+//			if(!handler.getGame().getMusicHandler().getEPlayer().isEmpty()&&!handler.getGame().getMusicHandler().getEffect(0).equals(null)) {
+//				handler.getGame().getMusicHandler().stopEffect(0);
+//			}
 
-			handler.getGame().getMusicHandler().playEffect("res/music/selectBeep.wav",0);
+			//handler.getGame().getMusicHandler().playEffect("res/music/selectBeep.wav",0);
 
 			if(optionSelect > 0){
 				optionSelect -= 1;
@@ -380,10 +380,10 @@ public class UIListener extends InWorldState{
 		uiManager.getObjects().get(optionSelect);
 
 		if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_ENTER)) {
-			if(!handler.getGame().getMusicHandler().getEPlayer().isEmpty()&&!handler.getGame().getMusicHandler().getEffect(0).equals(null)) {
-				handler.getGame().getMusicHandler().stopEffect(0);
-			}
-			handler.getGame().getMusicHandler().playEffect("res/music/enterSelect.wav",0);
+//			if(!handler.getGame().getMusicHandler().getEPlayer().isEmpty()&&!handler.getGame().getMusicHandler().getEffect(0).equals(null)) {
+//				handler.getGame().getMusicHandler().stopEffect(0);
+//			}
+//			handler.getGame().getMusicHandler().playEffect("res/music/enterSelect.wav",0);
 			uiManager.getObjects().get(optionSelect).onClick();}
 
 
@@ -484,11 +484,11 @@ public class UIListener extends InWorldState{
 
 			if(this.enemyRect.x < this.playerRect.x && this.playerRect.x < this.enemyRect.x + 50) {
 
-				if(!handler.getGame().getMusicHandler().getEPlayer().isEmpty()&&!handler.getGame().getMusicHandler().getEffect(0).equals(null)) {
-					handler.getGame().getMusicHandler().stopEffect(0);
-				}
-
-				handler.getGame().getMusicHandler().playEffect("res/music/slash.wav",0);
+//				if(!handler.getGame().getMusicHandler().getEPlayer().isEmpty()&&!handler.getGame().getMusicHandler().getEffect(0).equals(null)) {
+//					handler.getGame().getMusicHandler().stopEffect(0);
+//				}
+//
+//				handler.getGame().getMusicHandler().playEffect("res/music/slash.wav",0);
 			}
 
 			if (playerRect.x <= (handler.getWidth() / 5) - 10 && playerRect.x >= (handler.getWidth() / 5) - 110) {

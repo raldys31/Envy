@@ -47,7 +47,7 @@ public class GameSetUp implements Runnable {
     public PauseState pauseState;
 
     //Res.music
-    private MusicHandler musicHandler;
+    //private MusicHandler musicHandler;
 
     public final static String[] resList = {"res/icons/clips/FCTM.wav","res/icons/clips/FFM.wav","res/icons/clips/FIL.wav","res/icons/clips/FITR.wav","res/icons/clips/FLFWDF.wav","res/icons/clips/FWIAS.wav"};
 
@@ -60,7 +60,7 @@ public class GameSetUp implements Runnable {
         this.title = title;
         keyManager = new KeyManager();
         mouseManager = new MouseManager();
-        musicHandler = new MusicHandler(handler);
+        //musicHandler = new MusicHandler(handler);
 
     }
 
@@ -83,10 +83,10 @@ public class GameSetUp implements Runnable {
 
         State.setState(menuState);
 
-        musicHandler.set_changeMusic("res/music/Overture.mp3");
-        musicHandler.play();
-        musicHandler.setLoop(true);
-        musicHandler.setVolume(.10);
+//        musicHandler.set_changeMusic("res/music/Overture.mp3");
+//        musicHandler.play();
+//        musicHandler.setLoop(true);
+//        musicHandler.setVolume(.10);
 
     }
 
@@ -186,9 +186,9 @@ public class GameSetUp implements Runnable {
         return keyManager;
     }
 
-    public MusicHandler getMusicHandler() {
-        return musicHandler;
-    }
+//    public MusicHandler getMusicHandler() {
+//        return null; //musicHandler;
+//    }
 
 
     public MouseManager getMouseManager(){
