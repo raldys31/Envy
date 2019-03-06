@@ -210,10 +210,10 @@ public class KeyManager implements KeyListener {
 
 			if(handler.getEntityManager().getPlayer().getCollision().intersects(this.rectangle)) {
 				
-				handler.getGame().getMusicHandler().set_changeMusic("res/music/SEnemy.mp3");
-				handler.getGame().getMusicHandler().play();			
-				handler.getGame().getMusicHandler().setLoop(true);	
-				handler.getGame().getMusicHandler().setVolume(0.1);
+//				handler.getGame().getMusicHandler().set_changeMusic("res/music/SEnemy.mp3");
+//				handler.getGame().getMusicHandler().play();			
+//				handler.getGame().getMusicHandler().setLoop(true);	
+//				handler.getGame().getMusicHandler().setVolume(0.1);
 				State.setState(new UIListener(handler));
 
 

@@ -69,9 +69,9 @@ public class FightState extends InWorldState{
         //enemy info square coordinate
         entityInfoX[1] = handler.getWidth() * 14/20 + 4;
         
-        handler.getGame().getMusicHandler().set_changeMusic("res/music/BattleMusic.mp3");
-        handler.getGame().getMusicHandler().play();
-        handler.getGame().getMusicHandler().setVolume(0.2);
+//        handler.getGame().getMusicHandler().set_changeMusic("res/music/BattleMusic.mp3");
+//        handler.getGame().getMusicHandler().play();
+//        handler.getGame().getMusicHandler().setVolume(0.2);
 
         inStateEnemy=enemy;
 
@@ -134,9 +134,9 @@ public class FightState extends InWorldState{
             if(!attacking&&!defense&&!skill&&turn>0&&enemy.getHealth()<=0&&!battleOver){
                 battleOver=true;
                 
-                handler.getGame().getMusicHandler().stop();
-                handler.getGame().getMusicHandler().playEffect("res/music/victory.mp3",0);
-                handler.getGame().getMusicHandler().setEffectVolume(0, 0.3);
+//                handler.getGame().getMusicHandler().stop();
+//                handler.getGame().getMusicHandler().playEffect("res/music/victory.mp3",0);
+//                handler.getGame().getMusicHandler().setEffectVolume(0, 0.3);
                 
             }
             if(!Eattacking&&!Edefense&&!Eskill&&turn==0&&handler.getEntityManager().getPlayer().getHealth()<=0&&!battleOver){
@@ -247,9 +247,9 @@ public class FightState extends InWorldState{
                 	
                     if(prevState.equals("None")){
 
-                    	handler.getGame().getMusicHandler().set_changeMusic("res/music/OverWorld.mp3");
-                        handler.getGame().getMusicHandler().play();
-                        handler.getGame().getMusicHandler().setVolume(0.2);
+//                    	handler.getGame().getMusicHandler().set_changeMusic("res/music/OverWorld.mp3");
+//                        handler.getGame().getMusicHandler().play();
+//                        handler.getGame().getMusicHandler().setVolume(0.2);
                         
                         State.setState(handler.getGame().mapState);
                         handler.setArea("None");
@@ -257,9 +257,9 @@ public class FightState extends InWorldState{
                     	// cave music
                         handler.setArea(InWorldState.currentArea.name);
                         
-                        handler.getGame().getMusicHandler().set_changeMusic("res/music/Cave.mp3");
-                        handler.getGame().getMusicHandler().play();
-                        handler.getGame().getMusicHandler().setVolume(0.4);
+//                        handler.getGame().getMusicHandler().set_changeMusic("res/music/Cave.mp3");
+//                        handler.getGame().getMusicHandler().play();
+//                        handler.getGame().getMusicHandler().setVolume(0.4);
                         
                         State.setState(handler.getGame().inWorldState);
                     }
@@ -432,11 +432,11 @@ public class FightState extends InWorldState{
         if (handler.getKeyManager().down || handler.getKeyManager().up) {}
         if (handler.getKeyManager().right && inputCoolDown > 15){
 //        	choose options to the right
-        	if(!handler.getGame().getMusicHandler().getEPlayer().isEmpty()&&!handler.getGame().getMusicHandler().getEffect(0).equals(null)) {
-    			handler.getGame().getMusicHandler().stopEffect(0);
-    		}
-        	
-    		handler.getGame().getMusicHandler().playEffect("res/music/selectBeep.wav",0);
+//        	if(!handler.getGame().getMusicHandler().getEPlayer().isEmpty()&&!handler.getGame().getMusicHandler().getEffect(0).equals(null)) {
+//    			handler.getGame().getMusicHandler().stopEffect(0);
+//    		}
+//        	
+//    		handler.getGame().getMusicHandler().playEffect("res/music/selectBeep.wav",0);
     		
             if(optionSelect < uiManager.getObjects().size()-1 ) {
                 optionSelect++;
@@ -447,11 +447,11 @@ public class FightState extends InWorldState{
         if (handler.getKeyManager().left && inputCoolDown > 15){
 //        	choose options to the left
         	
-        	if(!handler.getGame().getMusicHandler().getEPlayer().isEmpty()&&!handler.getGame().getMusicHandler().getEffect(0).equals(null)) {
-    			handler.getGame().getMusicHandler().stopEffect(0);
-    		}
-        	
-    		handler.getGame().getMusicHandler().playEffect("res/music/selectBeep.wav",0);
+//        	if(!handler.getGame().getMusicHandler().getEPlayer().isEmpty()&&!handler.getGame().getMusicHandler().getEffect(0).equals(null)) {
+//    			handler.getGame().getMusicHandler().stopEffect(0);
+//    		}
+//        	
+//    		handler.getGame().getMusicHandler().playEffect("res/music/selectBeep.wav",0);
     		
             if(optionSelect > 0){
                 optionSelect -= 1;
@@ -463,11 +463,11 @@ public class FightState extends InWorldState{
         uiManager.getObjects().get(optionSelect);
 
         if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_ENTER)) {
-        	if(!handler.getGame().getMusicHandler().getEPlayer().isEmpty()&&!handler.getGame().getMusicHandler().getEffect(0).equals(null)) {
-    			handler.getGame().getMusicHandler().stopEffect(0);
-    		}
-    		handler.getGame().getMusicHandler().playEffect("res/music/enterSelect.wav",0);
-            uiManager.getObjects().get(optionSelect).onClick();}
+//        	if(!handler.getGame().getMusicHandler().getEPlayer().isEmpty()&&!handler.getGame().getMusicHandler().getEffect(0).equals(null)) {
+//    			handler.getGame().getMusicHandler().stopEffect(0);
+//    		}
+//    		handler.getGame().getMusicHandler().playEffect("res/music/enterSelect.wav",0);
+           uiManager.getObjects().get(optionSelect).onClick();}
 
         eWait = System.currentTimeMillis() + 3500;
     }
@@ -500,7 +500,7 @@ public class FightState extends InWorldState{
             public void onClick() {
                 if(handler.getEntityManager().getPlayer().getMana()>=25) {
                     System.out.println("Skill");
-                    skill = true;
+                    //skill = true;
                 }
 
             }
@@ -573,11 +573,11 @@ public class FightState extends InWorldState{
             
             if(this.enemyRect.x < this.playerRect.x && this.playerRect.x < this.enemyRect.x + 50) {
 
-				if(!handler.getGame().getMusicHandler().getEPlayer().isEmpty()&&!handler.getGame().getMusicHandler().getEffect(0).equals(null)) {
-					handler.getGame().getMusicHandler().stopEffect(0);
-				}
-
-				handler.getGame().getMusicHandler().playEffect("res/music/slash.wav",0);
+//				if(!handler.getGame().getMusicHandler().getEPlayer().isEmpty()&&!handler.getGame().getMusicHandler().getEffect(0).equals(null)) {
+//					handler.getGame().getMusicHandler().stopEffect(0);
+//				}
+//
+//				handler.getGame().getMusicHandler().playEffect("res/music/slash.wav",0);
 			}
 
             if (playerRect.x <= (handler.getWidth() / 5) - 10 && playerRect.x >= (handler.getWidth() / 5) - 110) {

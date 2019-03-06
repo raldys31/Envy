@@ -167,7 +167,7 @@ public class MenuState extends State {
 			staticsChoice = new Random().nextInt(3);
 			if (x <= 5) {
 				statics=true;
-                handler.getGame().getMusicHandler().playEffect(GameSetUp.resList[new Random().nextInt(GameSetUp.resList.length)],handler.getGame().getMusicHandler().getEPlayer().size());
+                //handler.getGame().getMusicHandler().playEffect(GameSetUp.resList[new Random().nextInt(GameSetUp.resList.length)],handler.getGame().getMusicHandler().getEPlayer().size());
             }
 		}else{
 			staticsCounter++;
@@ -237,14 +237,14 @@ public class MenuState extends State {
 
 	public void choose() {
 
-		handler.getGame().getMusicHandler().playEffect("res/music/enterSelect.wav",0);
+		//handler.getGame().getMusicHandler().playEffect("res/music/enterSelect.wav",0);
 		
 		if(selector.getxPos2() == selector.menuXPositions[0] && selector.getyPos2() == selector.menuYPositions[0]) {
 			GameSetUp.LOADING=true;
-			handler.getGame().getMusicHandler().set_changeMusic("res/music/OverWorld.mp3");
-			handler.getGame().getMusicHandler().play();
-			handler.getGame().getMusicHandler().setVolume(0.2);
-			handler.getGame().getMusicHandler().setLoop(true);
+//			handler.getGame().getMusicHandler().set_changeMusic("res/music/OverWorld.mp3");
+//			handler.getGame().getMusicHandler().play();
+//			handler.getGame().getMusicHandler().setVolume(0.2);
+//			handler.getGame().getMusicHandler().setLoop(true);
 			
 			State.setState(handler.getGame().mapState);
 		}
