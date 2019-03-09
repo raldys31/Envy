@@ -470,6 +470,10 @@ public class FightState extends InWorldState{
            uiManager.getObjects().get(optionSelect).onClick();}
 
         eWait = System.currentTimeMillis() + 3500;
+        
+        if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_H)) {
+        	handler.getEntityManager().getPlayer().fillHealthAndMana();
+        }
     }
 
     private void setUiManager() {
