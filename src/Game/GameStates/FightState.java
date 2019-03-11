@@ -211,20 +211,27 @@ public class FightState extends InWorldState{
                 g.drawString("DEFEAT!",handler.getWidth()/3 - 50,handler.getHeight()/2);
 
             }else{
-                g.setColor(new Color(255,255,255,alpha+=1));
-                g.fillRect(0,0,handler.getWidth(),handler.getHeight());
-                g2.setColor(Color.GREEN);
-                g.drawString("VICTORY!",handler.getWidth()/3 - 50,handler.getHeight()/2);
-                g2.setFont(new Font("IMPACT", 3, this.wordHeight/3));
-                g.drawString("Experience gained: " + (int) enemy.getXp(),handler.getWidth()/3 + 10,handler.getHeight()/2 + 70);
-                if(handler.getEntityManager().getPlayer().getXp() + enemy.getXp() >= lvlUp) {
-                	 g2.setFont(new Font("IMPACT", 3, this.wordHeight/2));
-                     g.drawString("LEVEL UP!",handler.getWidth()/3 + 100,handler.getHeight()/2 + 155);
-                     g2.setFont(new Font("IMPACT", 3, this.wordHeight/3));
-                     g.drawString( handler.getEntityManager().getPlayer().getLvl() + "  -> " + (handler.getEntityManager().getPlayer().getLvl()+1),handler.getWidth()/3 + 150,handler.getHeight()/2 + 230);
-                }
-                enemy.kill();
-                inStateEnemy.kill();
+            	g.setColor(new Color(255,255,255,alpha+=1));
+            	g.fillRect(0,0,handler.getWidth(),handler.getHeight());
+            	g2.setColor(Color.GREEN);
+            	g.drawString("VICTORY!",handler.getWidth()/3 - 50,handler.getHeight()/2);
+            	g2.setFont(new Font("IMPACT", 3, this.wordHeight/3));
+            	g.drawString("Experience gained: " + (int) enemy.getXp(),handler.getWidth()/3 + 10,handler.getHeight()/2 + 70);
+            	if(handler.getEntityManager().getPlayer().getXp() + enemy.getXp() >= lvlUp) {
+            		g2.setFont(new Font("IMPACT", 3, this.wordHeight/2));
+            		g.drawString("LEVEL UP!",handler.getWidth()/3 + 100,handler.getHeight()/2 + 155);
+            		g2.setFont(new Font("IMPACT", 3, this.wordHeight/3));
+            		g.drawString( handler.getEntityManager().getPlayer().getLvl() + "  -> " + (handler.getEntityManager().getPlayer().getLvl()+1),handler.getWidth()/3 + 150,handler.getHeight()/2 + 230);
+            	}
+
+            	//completed at least one quest
+            	if(handler.getEntityManager().getPlayer().getSkill().equals("none")) {
+            		handler.getEntityManager().getPlayer().setSkill("IceSkill");
+            	}
+
+
+            	enemy.kill();
+            	inStateEnemy.kill();
             }
             if(alpha>=254){
                 if(handler.getEntityManager().getPlayer().getHealth()==0){
@@ -502,10 +509,10 @@ public class FightState extends InWorldState{
         uiManager.addObjects(new UIImageButton(handler.getWidth() * 38/60 - 128/2, 5*handler.getHeight()/6, 128, 64, Images.Skill, new ClickListlener() {
             @Override
             public void onClick() {
-                if(handler.getEntityManager().getPlayer().getMana()>=25) {
-                    System.out.println("Skill");
-                    //skill = true;
-                }
+            	if(handler.getEntityManager().getPlayer().getMana()>=25 && !handler.getEntityManager().getPlayer().getSkill().equals("none")) {
+            		System.out.println("Skill");
+            		skill = true;
+            	}
 
             }
         }));

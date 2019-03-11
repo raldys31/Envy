@@ -1,5 +1,6 @@
 package Game.World;
 
+import Game.Entities.BaseEntity;
 import Game.Entities.EntityManager;
 import Game.Entities.Statics.SmokeHouse;
 import Game.Entities.Statics.Tree;
@@ -36,6 +37,7 @@ public class WorldManager {
 		circle = handler.getGame().getMouseManager().new Circle(5627,380, this.handler);
 		this.entityManager.AddEntity(new Tree(handler, 600, 600));
 		this.entityManager.AddEntity(new SmokeHouse(handler, 1153, 335));
+		this.entityManager.AddEntity(new Tree(handler, 1640, 45));
 
 		this.entityManager.AddEntity(handler.newEnemy(Images.PEnemyIdle,handler,500, 800,"MapState","Jovan","None","EnemyOne",100,25,40,1,8,12,20,10,20,10,1,5,"None","Fire",null,null)); // lvl 0 dificulty
 		this.entityManager.AddEntity(handler.newEnemy(Images.PEnemyIdle,handler,1400, 600,"MapState","Common Rat","None","EnemyOne",100,25,40,1,8,12,20,10,20,10,1,5,"None","Fire",null,null)); // lvl 0 dificulty
@@ -163,6 +165,7 @@ public class WorldManager {
 	public ArrayList<Walls> getWalls() {
 		return worldWalls;
 	}
+
 	public String getString() {  	
 		return "* " + this.getString("xhttgdexsfhpeny"
 				+ "jrefhvznwji", 5) + " *";	    	
