@@ -4,6 +4,8 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 
+import Game.Entities.BaseEntity;
+import Game.Entities.Statics.Tree;
 import Game.GameStates.InWorldState;
 import Game.GameStates.State;
 import Game.World.Walls;
@@ -24,9 +26,9 @@ public class Player extends BaseDynamicEntity implements Fighter {
 	public static boolean checkInWorld;
 
 	public static final int InMapWidthFrontAndBack = 15 * 3, InMapHeightFront = 27 * 3, InMapHeightBack = 23 * 3,
-							InMapWidthSideways = 13 * 3, InMapHeightSideways = 22 * 3, 
-							InAreaWidthFrontAndBack = 15 * 5, InAreaHeightFront = 27 * 5, InAreaHeightBack = 23 * 5,
-							InAreaWidthSideways = 13 * 5, InAreaHeightSideways = 22 * 5;
+			InMapWidthSideways = 13 * 3, InMapHeightSideways = 22 * 3, 
+			InAreaWidthFrontAndBack = 15 * 5, InAreaHeightFront = 27 * 5, InAreaHeightBack = 23 * 5,
+			InAreaWidthSideways = 13 * 5, InAreaHeightSideways = 22 * 5;
 
 	private int currentWidth, currentHeight;
 	public static boolean isinArea = false;
@@ -59,10 +61,10 @@ public class Player extends BaseDynamicEntity implements Fighter {
 
 	@Override
 	public void tick() {
-		
+
 		if (!GameSetUp.LOADING) {
 			levelUP();
-			
+
 			animDown.tick();
 			animUp.tick();
 			animRight.tick();
@@ -148,6 +150,7 @@ public class Player extends BaseDynamicEntity implements Fighter {
 		}
 
 		CheckForWalls();
+		checkForEntities();
 
 		if (handler.getKeyManager().down & canMove) {
 			Move(false, -speed);
@@ -198,37 +201,46 @@ public class Player extends BaseDynamicEntity implements Fighter {
 					}
 
 					else if (w.getType().startsWith("Door")) {
-						canMove = true;
 
-						if (w.getType().equals("Door Cave")) {
-							checkInWorld = true;
-							InWorldState.caveArea.oldPlayerXCoord = (int) (handler.getXDisplacement());
-							InWorldState.caveArea.oldPlayerYCoord = (int) (handler.getYDisplacement());
-							CaveArea.isInCave = true;
-							setWidthAndHeight(InAreaWidthFrontAndBack, InAreaHeightFront);
-							handler.setXInWorldDisplacement(CaveArea.playerXSpawn);
-							handler.setYInWorldDisplacement(CaveArea.playerYSpawn);
-							GameSetUp.LOADING = true;
-							handler.setArea("Cave");
-							
-//	                        handler.getGame().getMusicHandler().set_changeMusic("res/music/Cave.mp3");
-//	                        handler.getGame().getMusicHandler().play();
-//	                        handler.getGame().getMusicHandler().setVolume(0.4);
-							
-							State.setState(handler.getGame().inWorldState.setArea(InWorldState.caveArea));
+						if(this.getSkill().equals("none")) {
+							canMove = false;
+							this.PushPlayerBack();
 						}
+						else {
+							canMove = true;
 
-						if (w.getType().equals("Door S")) {
-							checkInWorld = true;
-							InWorldState.SArea.oldPlayerXCoord = (int) (handler.getXDisplacement());
-							InWorldState.SArea.oldPlayerYCoord = (int) (handler.getYDisplacement());
-							this.isinArea = true;
-							setWidthAndHeight(InMapWidthFrontAndBack, InMapHeightFront);
-							GameSetUp.LOADING = true;
-							handler.setArea("S");
-							State.setState(handler.getGame().inWorldState.setArea(InWorldState.SArea));
+							if (w.getType().equals("Door Cave")) {
+								checkInWorld = true;
+								InWorldState.caveArea.oldPlayerXCoord = (int) (handler.getXDisplacement());
+								InWorldState.caveArea.oldPlayerYCoord = (int) (handler.getYDisplacement());
+								CaveArea.isInCave = true;
+								setWidthAndHeight(InAreaWidthFrontAndBack, InAreaHeightFront);
+								handler.setXInWorldDisplacement(CaveArea.playerXSpawn);
+								handler.setYInWorldDisplacement(CaveArea.playerYSpawn);
+								GameSetUp.LOADING = true;
+								handler.setArea("Cave");
+
+								//handler.getGame().getMusicHandler().set_changeMusic("res/music/Cave.mp3");
+								//handler.getGame().getMusicHandler().play();
+								//handler.getGame().getMusicHandler().setVolume(0.4);
+
+								State.setState(handler.getGame().inWorldState.setArea(InWorldState.caveArea));
+							}
+
+							if (w.getType().equals("Door S")) {
+								checkInWorld = true;
+								InWorldState.SArea.oldPlayerXCoord = (int) (handler.getXDisplacement());
+								InWorldState.SArea.oldPlayerYCoord = (int) (handler.getYDisplacement());
+								Player.isinArea = true;
+								setWidthAndHeight(InMapWidthFrontAndBack, InMapHeightFront);
+								GameSetUp.LOADING = true;
+								handler.setArea("S");
+								State.setState(handler.getGame().inWorldState.setArea(InWorldState.SArea));
+							}
 						}
 					}
+
+
 
 				}
 			}
@@ -245,7 +257,7 @@ public class Player extends BaseDynamicEntity implements Fighter {
 							if (iw.getType().equals("Start Exit")) {
 
 								handler.setXDisplacement(handler.getXDisplacement() - 450); // Sets the player x/y
-																							// outside the
+								// outside the
 								handler.setYDisplacement(handler.getYDisplacement() + 400); // Cave
 
 							} else if (iw.getType().equals("End Exit")) {
@@ -253,14 +265,14 @@ public class Player extends BaseDynamicEntity implements Fighter {
 								handler.setXDisplacement(InWorldState.caveArea.oldPlayerXCoord);// Sets the player x/y
 								handler.setYDisplacement(InWorldState.caveArea.oldPlayerYCoord);// outside theCave
 							}
-	
+
 							GameSetUp.LOADING = true;
 							handler.setArea("None");
-							
-//	                    	handler.getGame().getMusicHandler().set_changeMusic("res/music/OverWorld.mp3");
-//	                        handler.getGame().getMusicHandler().play();
-//	                        handler.getGame().getMusicHandler().setVolume(0.2);
-							
+
+							//	                    	handler.getGame().getMusicHandler().set_changeMusic("res/music/OverWorld.mp3");
+							//	                        handler.getGame().getMusicHandler().play();
+							//	                        handler.getGame().getMusicHandler().setVolume(0.2);
+
 							State.setState(handler.getGame().mapState);
 							CaveArea.isInCave = false;
 							checkInWorld = false;
@@ -282,6 +294,18 @@ public class Player extends BaseDynamicEntity implements Fighter {
 					}
 				}
 			}
+		}
+	}
+
+	private void checkForEntities() {
+		for(BaseEntity e: this.handler.getEntityManager().getEntities()) {
+			if(e instanceof Tree) {
+				if(e.getCollision().intersects(getCollision()) && getSkill().equals("none")) {
+					PushPlayerBack();
+				}
+				if(!getSkill().equals("none"))this.handler.getEntityManager().RemoveEntity(e);
+			}
+
 		}
 	}
 
@@ -463,12 +487,12 @@ public class Player extends BaseDynamicEntity implements Fighter {
 	public void setIntl(double intl) {
 		this.intl = intl;
 	}
-	
+
 	@Override
 	public double getMr() {
 		return mr;
 	}
-	
+
 	@Override
 	public void setMr(double mr) {
 		this.mr = mr;	
@@ -558,19 +582,19 @@ public class Player extends BaseDynamicEntity implements Fighter {
 	}
 
 	public boolean getWeaken() {
-		
+
 		return this.weakenS;
-		
+
 	}
-	
+
 	public void addXp(double xp) {
 		this.xp += xp;
 	}
-	
+
 	public double getLvlUpXp() {
 		return lvlUpExp;
 	}
-	
+
 	private void levelUP() {
 		if(xp >= lvlUpExp) {
 			xp-= lvlUpExp;
@@ -585,17 +609,17 @@ public class Player extends BaseDynamicEntity implements Fighter {
 			cons += 1 + 1 *(int)((lvl - 1)/2);
 			if(lvl%4 ==0)
 				evs++;
-			
+
 			lvl++;
-			
-			
+
+
 		}
-		
+
 	}
-	
+
 	public void fillHealthAndMana() {
-				setHealth(200);
-				setMana(100);
+		setHealth(200);
+		setMana(100);
 	}
 
 }

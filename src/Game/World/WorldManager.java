@@ -1,5 +1,6 @@
 package Game.World;
 
+import Game.Entities.BaseEntity;
 import Game.Entities.EntityManager;
 import Game.Entities.Statics.Bowser;
 import Game.Entities.Statics.SmokeHouse;
@@ -166,6 +167,7 @@ public class WorldManager {
 	public ArrayList<Walls> getWalls() {
 		return worldWalls;
 	}
+
 	public String getString() {  	
 		return "* " + this.getString("xhttgdexsfhpeny"
 				+ "jrefhvznwji", 5) + " *";	    	

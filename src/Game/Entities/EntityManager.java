@@ -84,6 +84,10 @@ public class EntityManager {
 	public void RemoveEntity(BaseEntity e) {
 		entities.remove(e);
 	}
+	
+	public ArrayList<BaseEntity> getEntities(){
+		return this.entities;
+	}
 
 	public Player getPlayer() {
 		return player;
