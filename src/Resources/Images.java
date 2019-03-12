@@ -42,6 +42,7 @@ public class Images {
 
 
 	public static SpriteSheet playerSheet;
+	
 	public static BufferedImage[] player_front;
 	public static BufferedImage[] player_left;
 	public static BufferedImage[] player_right;
@@ -80,6 +81,7 @@ public class Images {
 
 	public static SpriteSheet smokeHouseSheet;
 	public static SpriteSheet statueSheet;
+	public static SpriteSheet bowserSheet;
 
 	public static BufferedImage[] smokeHouse;
 
@@ -92,6 +94,7 @@ public class Images {
 	public static Image ScaledCave;
 	public static Image ScaledArea;
 	public static BufferedImage tree;
+	public static BufferedImage bowser;
 
 	public Images() {
 
@@ -144,7 +147,8 @@ public class Images {
 			
 			smokeHouseSheet = new SpriteSheet(ImageIO.read(getClass().getResourceAsStream("/Sheets/House.png")));
 			statueSheet = new SpriteSheet(ImageIO.read(getClass().getResourceAsStream("/Sheets/statueSheet.png")));
-
+			bowserSheet = new SpriteSheet(ImageIO.read(getClass().getResourceAsStream("/Sheets/BowserOG.png")));
+			
 			iceSkillSheet = new SpriteSheet(ImageIO.read(getClass().getResourceAsStream("/Sheets/iceSkill.png")));
 			fireSkillSheet = new SpriteSheet(ImageIO.read(getClass().getResourceAsStream("/Sheets/fireSkill.png")));
 			defenceModeSheet=  new SpriteSheet(ImageIO.read(getClass().getResourceAsStream("/Sheets/defenceMode.png")));
@@ -214,6 +218,7 @@ public class Images {
 			lightStatue[8] = statueSheet.crop(0, 96, 16, 48);
 			lightStatue[9] = statueSheet.crop(0, 96, 16, 48);
 
+			bowser = bowserSheet.crop(82, 3, 67, 68);
 
 			PEnemyIdle[0] = PEnemySheet.crop(0, 0, 38, 40);
 			PEnemyIdle[1] = PEnemySheet.crop(39, 0, 39, 40);
