@@ -303,7 +303,7 @@ public class Player extends BaseDynamicEntity implements Fighter {
 				if(e.getCollision().intersects(getCollision()) && getSkill().equals("none")) {
 					PushPlayerBack();
 				}
-				if(!getSkill().equals("none"))this.handler.getEntityManager().RemoveEntity(e);
+				//if(!getSkill().equals("none"))this.handler.getEntityManager().RemoveEntity(e);
 			}
 
 		}

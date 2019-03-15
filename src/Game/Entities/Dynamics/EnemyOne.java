@@ -9,6 +9,7 @@ import java.awt.image.BufferedImage;
 import Game.GameStates.FightState;
 import Game.GameStates.State;
 import Main.Handler;
+import Resources.Animation;
 import Resources.Images;
 
 public class EnemyOne extends BaseHostileEntity implements Fighter{
@@ -16,6 +17,9 @@ public class EnemyOne extends BaseHostileEntity implements Fighter{
     Rectangle enemyOne;
     int width, height;
 
+    private Animation animDown, animUp, animLeft, animRight;
+    private int animWalkingSpeed = 150;
+    
     public EnemyOne(Handler handler, int xPosition, int yPosition, String state, String name, String area, BufferedImage[] animFrames) {
         super(handler, yPosition, yPosition,state,name,area,animFrames);
         width = 30;
@@ -25,6 +29,11 @@ public class EnemyOne extends BaseHostileEntity implements Fighter{
         this.setXOffset(xPosition);
         this.setYOffset(yPosition);
 
+        animDown = new Animation(animWalkingSpeed, Images.pikachu_front);
+		animLeft = new Animation(animWalkingSpeed, Images.pikachu_left);
+		animRight = new Animation(animWalkingSpeed, Images.pikachu_right);
+		animUp = new Animation(animWalkingSpeed, Images.pikachu_back);
+        
         this.foundState = state;
         enemyOne = new Rectangle();
     }
@@ -32,6 +41,10 @@ public class EnemyOne extends BaseHostileEntity implements Fighter{
     @Override
     public void tick() {
 
+    	animDown.tick();
+    	animUp.tick();
+    	animRight.tick();
+    	animLeft.tick();
         if(!Player.isinArea)super.tick();
 
     }
@@ -56,7 +69,7 @@ public class EnemyOne extends BaseHostileEntity implements Fighter{
 
             g2.setColor(Color.black);
 
-            g.drawImage(Images.ghost,enemyOne.x,enemyOne.y,enemyOne.width,enemyOne.height,null);
+            g.drawImage(getCurrentAnimationFrame(animDown,animUp,animLeft,animRight,Images.pikachu_front,Images.pikachu_back,Images.pikachu_left,Images.pikachu_right), enemyOne.x,enemyOne.y,enemyOne.width,enemyOne.height,null);
 
             if (enemyOne.intersects(handler.getEntityManager().getPlayer().getCollision())) {
                 handler.getEntityManager().getPlayer().facing = "Left";

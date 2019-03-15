@@ -48,11 +48,19 @@ public class Images {
 	public static BufferedImage[] player_right;
 	public static BufferedImage[] player_back;
 	public static BufferedImage player_attack;
+	
+	public static SpriteSheet pikachuSheet;
+	
+	public static BufferedImage[] pikachu_front;
+	public static BufferedImage[] pikachu_left;
+	public static BufferedImage[] pikachu_right;
+	public static BufferedImage[] pikachu_back;
+	
 
 	public static BufferedImage[] PEnemyIdle;
 	public static BufferedImage[] WEnemyIdle;
 
-	public static SpriteSheet PEnemySheet;
+	public static SpriteSheet PikachuEnemySheet;
 	public static SpriteSheet WEnemySheet;
 
 	public static BufferedImage QST;
@@ -125,6 +133,11 @@ public class Images {
 		player_right = new BufferedImage[4];
 		player_left = new BufferedImage[4];
 		player_back = new BufferedImage[4];
+		
+		pikachu_front = new BufferedImage[3];
+		pikachu_right = new BufferedImage[3];
+		pikachu_left = new BufferedImage[3];
+		pikachu_back = new BufferedImage[3];
 
 		PEnemyIdle = new BufferedImage[7];
 		WEnemyIdle = new BufferedImage[3];
@@ -154,7 +167,7 @@ public class Images {
 			defenceModeSheet=  new SpriteSheet(ImageIO.read(getClass().getResourceAsStream("/Sheets/defenceMode.png")));
 			attackModeSheet=  new SpriteSheet(ImageIO.read(getClass().getResourceAsStream("/Sheets/attackMode.png")));
 
-			PEnemySheet = new SpriteSheet(ImageIO.read(getClass().getResourceAsStream("/Sheets/P-enemy.png")));
+			PikachuEnemySheet = new SpriteSheet(ImageIO.read(getClass().getResourceAsStream("/Sheets/P-enemy.png")));
 			WEnemySheet = new SpriteSheet(ImageIO.read(getClass().getResourceAsStream("/Sheets/W-enemy.png")));
 
 			projectTitle = ImageIO.read(getClass().getResourceAsStream("/Buttons/ProjectWord.png"));
@@ -220,14 +233,31 @@ public class Images {
 
 			bowser = bowserSheet.crop(82, 3, 67, 68);
 
-			PEnemyIdle[0] = PEnemySheet.crop(0, 0, 38, 40);
-			PEnemyIdle[1] = PEnemySheet.crop(39, 0, 39, 40);
-			PEnemyIdle[2] = PEnemySheet.crop(78, 0, 39, 40);
-			PEnemyIdle[3] = PEnemySheet.crop(118, 0, 36, 40);
-			PEnemyIdle[4] = PEnemySheet.crop(155, 0, 36, 40);
-			PEnemyIdle[5] = PEnemySheet.crop(192, 0, 37, 40);
-			PEnemyIdle[6] = PEnemySheet.crop(233, 0, 37, 40);
+			PEnemyIdle[0] = PikachuEnemySheet.crop(0, 0, 38, 40);
+			PEnemyIdle[1] = PikachuEnemySheet.crop(39, 0, 39, 40);
+			PEnemyIdle[2] = PikachuEnemySheet.crop(78, 0, 39, 40);
+			PEnemyIdle[3] = PikachuEnemySheet.crop(118, 0, 36, 40);
+			PEnemyIdle[4] = PikachuEnemySheet.crop(155, 0, 36, 40);
+			PEnemyIdle[5] = PikachuEnemySheet.crop(192, 0, 37, 40);
+			PEnemyIdle[6] = PikachuEnemySheet.crop(233, 0, 37, 40);
+			
+			pikachuSheet =  new SpriteSheet(ImageIO.read(getClass().getResourceAsStream("/Sheets/pokeSprites.png")));
 
+			pikachu_front[0] = pikachuSheet.crop(273, 13, 27, 27);
+			pikachu_front[1] = pikachuSheet.crop(305, 11, 27, 28);
+			pikachu_front[2] = pikachuSheet.crop(337, 11, 25, 28);
+			
+			pikachu_left[0] = pikachuSheet.crop(274, 40, 28, 28);
+			pikachu_left[1] = pikachuSheet.crop(304, 40, 28, 28);
+			pikachu_left[2] = pikachuSheet.crop(274, 40, 28, 28);
+			
+			pikachu_right[0] = pikachuSheet.crop(273, 73, 28, 26);
+			pikachu_right[1] = pikachuSheet.crop(303, 71, 28, 29);
+			pikachu_right[2] = pikachuSheet.crop(273, 73, 28, 26);
+			
+			pikachu_back[0] = pikachuSheet.crop(274, 104, 26, 26);
+			pikachu_back[1] = pikachuSheet.crop(306, 105, 26, 2);
+			pikachu_back[2] = pikachuSheet.crop(274, 104, 26, 26);
 
 			playerSheet =  new SpriteSheet(ImageIO.read(getClass().getResourceAsStream("/Sheets/player.png")));
 
