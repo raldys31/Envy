@@ -4,9 +4,12 @@ import Game.Entities.Dynamics.BaseHostileEntity;
 import Game.Entities.Dynamics.EnemyOne;
 import Input.KeyManager;
 import Input.MouseManager;
+import Resources.Images;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
+
+import javax.swing.JOptionPane;
 
 import Game.Entities.EntityManager;
 import Game.World.WorldManager;
@@ -126,6 +129,11 @@ public class Handler {
 
 	public void setArea(String area) {
 		Area = area;
+	}
+	
+	public void showMessage(String message, String title) {
+		JOptionPane.showMessageDialog(null, message, title, 
+				JOptionPane.INFORMATION_MESSAGE, Images.icon);
 	}
 
 
