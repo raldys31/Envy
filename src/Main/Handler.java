@@ -1,6 +1,7 @@
 package Main;
 
 import Game.Entities.Dynamics.BaseHostileEntity;
+import Game.Entities.Dynamics.Charizard;
 import Game.Entities.Dynamics.EnemyOne;
 import Input.KeyManager;
 import Input.MouseManager;
@@ -141,7 +142,7 @@ public class Handler {
 									  String typeOfEnemy, double hp, double mana, double xp, double lvl, double str, double def,
 									  double intl, double mr, double cons, double acc, double evs, double initiative,
 									  String Class, String Skill, String[] buffs, String[] debuffs){
-		if(typeOfEnemy.equals("pikachu")) {
+		if(typeOfEnemy.equals("EnemyOne")) {
 			EnemyOne n = new EnemyOne(handler, xPosition, yPosition, state, name, area,images);
 			n.setAcc(acc);
 			n.setBuffs(buffs);
@@ -162,8 +163,8 @@ public class Handler {
 			n.setXp(xp);
 			return n;
 		}
-		else if(typeOfEnemy.equals("EnemyTwo")) {
-			EnemyOne n = new EnemyOne(handler, xPosition, yPosition, state, name, area,images);
+		else if(typeOfEnemy.equals("Charizard")) {
+			Charizard n = new Charizard(handler, xPosition, yPosition, state, name, area,images);
 			n.setAcc(acc);
 			n.setBuffs(buffs);
 			n.setClass(Class);

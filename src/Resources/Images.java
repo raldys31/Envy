@@ -43,7 +43,6 @@ public class Images {
 
 
 	public static SpriteSheet playerSheet;
-	
 	public static BufferedImage[] player_front;
 	public static BufferedImage[] player_left;
 	public static BufferedImage[] player_right;
@@ -51,18 +50,24 @@ public class Images {
 	public static BufferedImage player_attack;
 	
 	public static SpriteSheet pikachuSheet;
-	
 	public static BufferedImage[] pikachu_front;
 	public static BufferedImage[] pikachu_left;
 	public static BufferedImage[] pikachu_right;
 	public static BufferedImage[] pikachu_back;
 	
+	public static SpriteSheet charizardSheet;
+	public static BufferedImage[] charizard_front;
+	public static BufferedImage[] charizard_left;
+	public static BufferedImage[] charizard_right;
+	public static BufferedImage[] charizard_back;
 
 	public static BufferedImage[] PEnemyIdle;
 	public static BufferedImage[] WEnemyIdle;
+	public static BufferedImage[] CEnemyIdle;
 
 	public static SpriteSheet PikachuEnemySheet;
 	public static SpriteSheet WEnemySheet;
+	public static SpriteSheet CharizardEnemySheet;
 
 	public static BufferedImage QST;
 
@@ -143,6 +148,11 @@ public class Images {
 		pikachu_right = new BufferedImage[3];
 		pikachu_left = new BufferedImage[3];
 		pikachu_back = new BufferedImage[3];
+		
+		charizard_front = new BufferedImage[4];
+		charizard_right = new BufferedImage[4];
+		charizard_left = new BufferedImage[4];
+		charizard_back = new BufferedImage[4];
 
 		PEnemyIdle = new BufferedImage[7];
 		WEnemyIdle = new BufferedImage[3];
@@ -175,7 +185,8 @@ public class Images {
 
 			PikachuEnemySheet = new SpriteSheet(ImageIO.read(getClass().getResourceAsStream("/Sheets/P-enemy.png")));
 			WEnemySheet = new SpriteSheet(ImageIO.read(getClass().getResourceAsStream("/Sheets/W-enemy.png")));
-
+			CharizardEnemySheet = new SpriteSheet(ImageIO.read(getClass().getResourceAsStream("/Sheets/charizardEnemySheet.png")));
+			
 			projectTitle = ImageIO.read(getClass().getResourceAsStream("/Buttons/ProjectWord.png"));
 			ghost = ImageIO.read(getClass().getResourceAsStream("/Sheets/ghost.png"));
 
@@ -287,6 +298,28 @@ public class Images {
 			pikachu_back[0] = pikachuSheet.crop(274, 104, 26, 26);
 			pikachu_back[1] = pikachuSheet.crop(306, 105, 26, 2);
 			pikachu_back[2] = pikachuSheet.crop(274, 104, 26, 26);
+			
+			charizardSheet =  new SpriteSheet(ImageIO.read(getClass().getResourceAsStream("/Sheets/CharizardSprite.png")));
+
+			charizard_front[0] = charizardSheet.crop(2, 8, 60, 55);
+			charizard_front[1] = charizardSheet.crop(64, 8, 62, 56);
+			charizard_front[2] = charizardSheet.crop(126, 9, 64, 53);
+			charizard_front[3] = charizardSheet.crop(192, 6, 62, 60);
+			
+			charizard_left[0] = charizardSheet.crop(3, 75, 63, 52);
+			charizard_left[1] = charizardSheet.crop(67, 75, 64, 54);
+			charizard_left[2] = charizardSheet.crop(130, 72, 62, 55);
+			charizard_front[3] = charizardSheet.crop(192, 74, 63, 54);
+			
+			charizard_right[0] = charizardSheet.crop(0, 138, 61, 53);
+			charizard_right[1] = charizardSheet.crop(64, 140, 61, 53);
+			charizard_right[2] = charizardSheet.crop(128, 139, 62, 52);
+			charizard_front[3] = charizardSheet.crop(192, 137, 61, 55);
+			
+			charizard_back[0] = charizardSheet.crop(0, 201, 62, 55);
+			charizard_back[1] = charizardSheet.crop(65, 202, 62, 54);
+			charizard_back[2] = charizardSheet.crop(131, 199, 56, 56);
+			charizard_front[3] = charizardSheet.crop(194, 205, 59, 51);
 
 			playerSheet =  new SpriteSheet(ImageIO.read(getClass().getResourceAsStream("/Sheets/player.png")));
 
