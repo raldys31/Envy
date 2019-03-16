@@ -5,6 +5,7 @@ import java.awt.Graphics2D;
 import java.awt.Rectangle;
 
 import Game.Entities.BaseEntity;
+import Game.Entities.Statics.Bowser;
 import Game.Entities.Statics.Tree;
 import Game.GameStates.InWorldState;
 import Game.GameStates.State;
@@ -299,11 +300,11 @@ public class Player extends BaseDynamicEntity implements Fighter {
 
 	private void checkForEntities() {
 		for(BaseEntity e: this.handler.getEntityManager().getEntities()) {
-			if(e instanceof Tree) {
+			if(e instanceof Bowser) {
 				if(e.getCollision().intersects(getCollision()) && getSkill().equals("none")) {
 					PushPlayerBack();
 				}
-				if(!getSkill().equals("none"))this.handler.getEntityManager().RemoveEntity(e);
+				//if(!getSkill().equals("none"))this.handler.getEntityManager().RemoveEntity(e);
 			}
 
 		}

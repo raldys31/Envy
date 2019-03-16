@@ -133,7 +133,7 @@ public class Handler {
 									  String typeOfEnemy, double hp, double mana, double xp, double lvl, double str, double def,
 									  double intl, double mr, double cons, double acc, double evs, double initiative,
 									  String Class, String Skill, String[] buffs, String[] debuffs){
-		if(typeOfEnemy.equals("EnemyOne")) {
+		if(typeOfEnemy.equals("pikachu")) {
 			EnemyOne n = new EnemyOne(handler, xPosition, yPosition, state, name, area,images);
 			n.setAcc(acc);
 			n.setBuffs(buffs);
@@ -153,7 +153,29 @@ public class Handler {
 			n.setStr(str);
 			n.setXp(xp);
 			return n;
-		}else{//default
+		}
+		else if(typeOfEnemy.equals("EnemyTwo")) {
+			EnemyOne n = new EnemyOne(handler, xPosition, yPosition, state, name, area,images);
+			n.setAcc(acc);
+			n.setBuffs(buffs);
+			n.setClass(Class);
+			n.setCons(cons);
+			n.setDebuffs(debuffs);
+			n.setDefense(def);
+			n.setEvs(evs);
+			n.setHealth(hp);
+            n.setMaxHealth(hp);
+			n.setInitiative(initiative);
+			n.setIntl(intl);
+			n.setMr(mr);
+			n.setLvl(lvl);
+			n.setMana(mana);
+			n.setSkill(Skill);
+			n.setStr(str);
+			n.setXp(xp);
+			return n;
+			}
+		else{//default
 			EnemyOne n = new EnemyOne(handler, xPosition, yPosition, state, name, area,images);
 			n.setAcc(acc);
 			n.setBuffs(buffs);
