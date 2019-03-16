@@ -1,10 +1,12 @@
 package Game.Entities.Dynamics;
 
+import java.awt.Component;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 
 import Game.Entities.BaseEntity;
+import Game.Entities.Statics.Bowser;
 import Game.Entities.Statics.Tree;
 import Game.GameStates.InWorldState;
 import Game.GameStates.State;
@@ -19,11 +21,15 @@ import Resources.Images;
 import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
 
+import javax.swing.JOptionPane;
+
 public class Player extends BaseDynamicEntity implements Fighter {
 
 	private Rectangle player;
 	private boolean canMove;
 	public static boolean checkInWorld;
+	
+	private int index = 0, index2=0;
 
 	public static final int InMapWidthFrontAndBack = 15 * 3, InMapHeightFront = 27 * 3, InMapHeightBack = 23 * 3,
 			InMapWidthSideways = 13 * 3, InMapHeightSideways = 22 * 3, 
@@ -107,6 +113,9 @@ public class Player extends BaseDynamicEntity implements Fighter {
 		if (GameSetUp.DEBUGMODE) {
 			g2.draw(nextArea);
 			g2.draw(getCollision());
+			for(BaseEntity e: this.handler.getEntityManager().getEntities()) {
+				g2.draw(e.getCollision());
+			}
 		}
 	}
 
@@ -202,45 +211,45 @@ public class Player extends BaseDynamicEntity implements Fighter {
 
 					else if (w.getType().startsWith("Door")) {
 
-						if(this.getSkill().equals("none")) {
-							canMove = false;
-							this.PushPlayerBack();
+						canMove = true;
+
+						if (w.getType().equals("Door Cave")) {
+							checkInWorld = true;
+							InWorldState.caveArea.oldPlayerXCoord = (int) (handler.getXDisplacement());
+							InWorldState.caveArea.oldPlayerYCoord = (int) (handler.getYDisplacement());
+							CaveArea.isInCave = true;
+							setWidthAndHeight(InAreaWidthFrontAndBack, InAreaHeightFront);
+							handler.setXInWorldDisplacement(CaveArea.playerXSpawn);
+							handler.setYInWorldDisplacement(CaveArea.playerYSpawn);
+							GameSetUp.LOADING = true;
+							handler.setArea("Cave");
+
+							//handler.getGame().getMusicHandler().set_changeMusic("res/music/Cave.mp3");
+							//handler.getGame().getMusicHandler().play();
+							//handler.getGame().getMusicHandler().setVolume(0.4);
+
+							State.setState(handler.getGame().inWorldState.setArea(InWorldState.caveArea));
 						}
-						else {
-							canMove = true;
+						
+						if(w.getType().equals("Door Town")) {
+							
+							System.out.println("Enter Town");
+							
+							//aqui va el change de state, igual que en cave
+							
+						}
 
-							if (w.getType().equals("Door Cave")) {
-								checkInWorld = true;
-								InWorldState.caveArea.oldPlayerXCoord = (int) (handler.getXDisplacement());
-								InWorldState.caveArea.oldPlayerYCoord = (int) (handler.getYDisplacement());
-								CaveArea.isInCave = true;
-								setWidthAndHeight(InAreaWidthFrontAndBack, InAreaHeightFront);
-								handler.setXInWorldDisplacement(CaveArea.playerXSpawn);
-								handler.setYInWorldDisplacement(CaveArea.playerYSpawn);
-								GameSetUp.LOADING = true;
-								handler.setArea("Cave");
-
-								//handler.getGame().getMusicHandler().set_changeMusic("res/music/Cave.mp3");
-								//handler.getGame().getMusicHandler().play();
-								//handler.getGame().getMusicHandler().setVolume(0.4);
-
-								State.setState(handler.getGame().inWorldState.setArea(InWorldState.caveArea));
-							}
-
-							if (w.getType().equals("Door S")) {
-								checkInWorld = true;
-								InWorldState.SArea.oldPlayerXCoord = (int) (handler.getXDisplacement());
-								InWorldState.SArea.oldPlayerYCoord = (int) (handler.getYDisplacement());
-								Player.isinArea = true;
-								setWidthAndHeight(InMapWidthFrontAndBack, InMapHeightFront);
-								GameSetUp.LOADING = true;
-								handler.setArea("S");
-								State.setState(handler.getGame().inWorldState.setArea(InWorldState.SArea));
-							}
+						if (w.getType().equals("Door S")) {
+							checkInWorld = true;
+							InWorldState.SArea.oldPlayerXCoord = (int) (handler.getXDisplacement());
+							InWorldState.SArea.oldPlayerYCoord = (int) (handler.getYDisplacement());
+							Player.isinArea = true;
+							setWidthAndHeight(InMapWidthFrontAndBack, InMapHeightFront);
+							GameSetUp.LOADING = true;
+							handler.setArea("S");
+							State.setState(handler.getGame().inWorldState.setArea(InWorldState.SArea));
 						}
 					}
-
-
 
 				}
 			}
@@ -299,11 +308,22 @@ public class Player extends BaseDynamicEntity implements Fighter {
 
 	private void checkForEntities() {
 		for(BaseEntity e: this.handler.getEntityManager().getEntities()) {
-			if(e instanceof Tree) {
-				if(e.getCollision().intersects(getCollision()) && getSkill().equals("none")) {
-					PushPlayerBack();
+			if(e instanceof Bowser) {
+				if(e.getCollision().intersects(getCollision())) {
+					if(index2==0) {
+						if(getSkill().equals("none")) {
+							this.handler.showMessage("Need a skill brooo!", "Need Skill"); //el metodo esta en el handler para asi usarlo en cualquier state ;)
+							index2 = 1;
+							PushPlayerBack();
+						}
+						else if(index==0){
+							e.setXOffset(1638+80);
+							this.handler.showMessage("CONGRATS!!", "Got a Skill");
+							index = 1;
+						}
+					}
 				}
-				//if(!getSkill().equals("none"))this.handler.getEntityManager().RemoveEntity(e);
+				else index2=0;	
 			}
 
 		}

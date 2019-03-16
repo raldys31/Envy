@@ -3,6 +3,7 @@ package Game.World;
 import Game.Entities.BaseEntity;
 import Game.Entities.EntityManager;
 import Game.Entities.Statics.Bowser;
+import Game.Entities.Statics.Portal;
 import Game.Entities.Statics.SmokeHouse;
 import Game.Entities.Statics.Tree;
 import Input.MouseManager.Circle;
@@ -39,6 +40,7 @@ public class WorldManager {
 		this.entityManager.AddEntity(new Tree(handler, 600, 600));
 		this.entityManager.AddEntity(new SmokeHouse(handler, 1153, 335));
 		this.entityManager.AddEntity(new Bowser(handler, 1638, 55));
+		this.entityManager.AddEntity(new Portal(handler, 1153+100, 235));
 		
 
 		this.entityManager.AddEntity(handler.newEnemy(Images.PEnemyIdle,handler,500, 800,"MapState","Jovan","None","EnemyOne",100,25,40,1,8,12,20,10,20,10,1,5,"None","Fire",null,null)); // lvl 0 dificulty
@@ -99,6 +101,9 @@ public class WorldManager {
 		worldWalls.add(new Walls(handler, 150, 120, 210, 360, "Wall"));
 		worldWalls.add(new Walls(handler, 150, 600, 210, 495, "Wall"));
 		worldWalls.add(new Walls(handler, 0, 450, 150, 200, "Wall"));
+		
+		//Wall to town
+		worldWalls.add(new Walls(handler, 1300, 235, 30, 200, "Door Town"));
 
 		//Walls of the Island
 		///Left Bottom Border of the Island

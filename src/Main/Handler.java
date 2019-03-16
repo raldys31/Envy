@@ -4,9 +4,12 @@ import Game.Entities.Dynamics.BaseHostileEntity;
 import Game.Entities.Dynamics.EnemyOne;
 import Input.KeyManager;
 import Input.MouseManager;
+import Resources.Images;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
+
+import javax.swing.JOptionPane;
 
 import Game.Entities.EntityManager;
 import Game.World.WorldManager;
@@ -127,13 +130,18 @@ public class Handler {
 	public void setArea(String area) {
 		Area = area;
 	}
+	
+	public void showMessage(String message, String title) {
+		JOptionPane.showMessageDialog(null, message, title, 
+				JOptionPane.INFORMATION_MESSAGE, Images.icon);
+	}
 
 
 	public BaseHostileEntity newEnemy(BufferedImage[] images,Handler handler, int xPosition, int yPosition, String state, String name, String area,
 									  String typeOfEnemy, double hp, double mana, double xp, double lvl, double str, double def,
 									  double intl, double mr, double cons, double acc, double evs, double initiative,
 									  String Class, String Skill, String[] buffs, String[] debuffs){
-		if(typeOfEnemy.equals("EnemyOne")) {
+		if(typeOfEnemy.equals("pikachu")) {
 			EnemyOne n = new EnemyOne(handler, xPosition, yPosition, state, name, area,images);
 			n.setAcc(acc);
 			n.setBuffs(buffs);
@@ -153,7 +161,29 @@ public class Handler {
 			n.setStr(str);
 			n.setXp(xp);
 			return n;
-		}else{//default
+		}
+		else if(typeOfEnemy.equals("EnemyTwo")) {
+			EnemyOne n = new EnemyOne(handler, xPosition, yPosition, state, name, area,images);
+			n.setAcc(acc);
+			n.setBuffs(buffs);
+			n.setClass(Class);
+			n.setCons(cons);
+			n.setDebuffs(debuffs);
+			n.setDefense(def);
+			n.setEvs(evs);
+			n.setHealth(hp);
+            n.setMaxHealth(hp);
+			n.setInitiative(initiative);
+			n.setIntl(intl);
+			n.setMr(mr);
+			n.setLvl(lvl);
+			n.setMana(mana);
+			n.setSkill(Skill);
+			n.setStr(str);
+			n.setXp(xp);
+			return n;
+			}
+		else{//default
 			EnemyOne n = new EnemyOne(handler, xPosition, yPosition, state, name, area,images);
 			n.setAcc(acc);
 			n.setBuffs(buffs);

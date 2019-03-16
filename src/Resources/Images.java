@@ -91,10 +91,12 @@ public class Images {
 	public static SpriteSheet smokeHouseSheet;
 	public static SpriteSheet statueSheet;
 	public static SpriteSheet bowserSheet;
-
+	
 	public static BufferedImage[] smokeHouse;
 
 	public static BufferedImage[] lightStatue;
+	
+	public static BufferedImage[] portal;
 
 	public static BufferedImage[] SItem;
 
@@ -154,6 +156,8 @@ public class Images {
 
 		smokeHouse = new BufferedImage[7];
 		lightStatue = new BufferedImage[10];
+		portal = new BufferedImage[20];
+		
 
 		try {
 			
@@ -163,8 +167,7 @@ public class Images {
 			
 			smokeHouseSheet = new SpriteSheet(ImageIO.read(getClass().getResourceAsStream("/Sheets/House.png")));
 			statueSheet = new SpriteSheet(ImageIO.read(getClass().getResourceAsStream("/Sheets/statueSheet.png")));
-			bowserSheet = new SpriteSheet(ImageIO.read(getClass().getResourceAsStream("/Sheets/BowserOG.png")));
-			
+			bowserSheet = new SpriteSheet(ImageIO.read(getClass().getResourceAsStream("/Sheets/BowserOG.png")));			
 			iceSkillSheet = new SpriteSheet(ImageIO.read(getClass().getResourceAsStream("/Sheets/iceSkill.png")));
 			fireSkillSheet = new SpriteSheet(ImageIO.read(getClass().getResourceAsStream("/Sheets/fireSkill.png")));
 			defenceModeSheet=  new SpriteSheet(ImageIO.read(getClass().getResourceAsStream("/Sheets/defenceMode.png")));
@@ -236,6 +239,28 @@ public class Images {
 			lightStatue[9] = statueSheet.crop(0, 96, 16, 48);
 
 			bowser = bowserSheet.crop(82, 3, 67, 68);
+			
+			portal[0] = ImageIO.read(getClass().getResourceAsStream("/portal/portal1.png"));
+			portal[1] = ImageIO.read(getClass().getResourceAsStream("/portal/portal2.png"));
+			portal[2] = ImageIO.read(getClass().getResourceAsStream("/portal/portal3.png"));
+			portal[3] = ImageIO.read(getClass().getResourceAsStream("/portal/portal4.png"));
+			portal[4] = ImageIO.read(getClass().getResourceAsStream("/portal/portal5.png"));
+			portal[5] = ImageIO.read(getClass().getResourceAsStream("/portal/portal6.png"));
+			portal[6] = ImageIO.read(getClass().getResourceAsStream("/portal/portal7.png"));
+			portal[7] = ImageIO.read(getClass().getResourceAsStream("/portal/portal8.png"));
+			portal[8] = ImageIO.read(getClass().getResourceAsStream("/portal/portal9.png"));
+			portal[9] = ImageIO.read(getClass().getResourceAsStream("/portal/portal10.png"));
+			portal[10] = ImageIO.read(getClass().getResourceAsStream("/portal/portal11.png"));
+			portal[11] = ImageIO.read(getClass().getResourceAsStream("/portal/portal12.png"));
+			portal[12] = ImageIO.read(getClass().getResourceAsStream("/portal/portal13.png"));
+			portal[13] = ImageIO.read(getClass().getResourceAsStream("/portal/portal14.png"));
+			portal[14] = ImageIO.read(getClass().getResourceAsStream("/portal/portal15.png"));
+			portal[15] = ImageIO.read(getClass().getResourceAsStream("/portal/portal16.png"));
+			portal[16] = ImageIO.read(getClass().getResourceAsStream("/portal/portal17.png"));
+			portal[17] = ImageIO.read(getClass().getResourceAsStream("/portal/portal18.png"));
+			portal[18] = ImageIO.read(getClass().getResourceAsStream("/portal/portal19.png"));
+			portal[19] = ImageIO.read(getClass().getResourceAsStream("/portal/portal20.png"));
+			
 
 			PEnemyIdle[0] = PikachuEnemySheet.crop(0, 0, 38, 40);
 			PEnemyIdle[1] = PikachuEnemySheet.crop(39, 0, 39, 40);
