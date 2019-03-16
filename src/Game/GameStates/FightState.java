@@ -529,6 +529,8 @@ public class FightState extends InWorldState{
             background = Images.battleBackground[1];
         else if (prev.equals("Cave"))
             background = Images.battleBackground[3];
+        else if (prev.equals("Town"))
+            background = Images.battleBackground[1];
 
 
     }

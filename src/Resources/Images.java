@@ -31,6 +31,7 @@ public class Images {
 	public static BufferedImage[] BTitle;
 	public static BufferedImage[] Options;
 	public static ImageIcon icon;
+	public static ImageIcon bowserIcon;
 
 	public static BufferedImage map[];
 	
@@ -98,9 +99,11 @@ public class Images {
 	public static BufferedImage[] SItem;
 
 	public static BufferedImage CaveMap;
+	public static BufferedImage TownMap;
 	public static BufferedImage Loading;
 	public static Image ScaledCave;
 	public static Image ScaledArea;
+	public static Image ScaledTown;
 	public static BufferedImage tree;
 	public static BufferedImage bowser;
 
@@ -175,6 +178,7 @@ public class Images {
 
 
 			CaveMap = ImageIO.read(getClass().getResourceAsStream("/Worlds/CaveMap.png"));
+			TownMap = ImageIO.read(getClass().getResourceAsStream("/Worlds/TownMap.png"));
 			tree = ImageIO.read(getClass().getResourceAsStream("/Sheets/Tree.png"));
 			title = ImageIO.read(getClass().getResourceAsStream("/Sheets/menuImage.png"));
 			title2 = ImageIO.read(getClass().getResourceAsStream("/Sheets/Title.png"));
@@ -735,6 +739,7 @@ public class Images {
 
 
 			icon = new ImageIcon(ImageIO.read(getClass().getResourceAsStream("/Sheets/icon.png")));
+			bowserIcon = new ImageIcon(ImageIO.read(getClass().getResourceAsStream("/icons/BowserIcon.png")));
 
 			if (processPixelSheet) {
 				PrintCropList("FireSkill", "fireSkillSheet", "/EffectCrops/fireSkillCropCoords.txt", 50, 50);
@@ -754,7 +759,7 @@ public class Images {
 //		map[3] = toBufferedImage(Scaledmap[1]);
 		
 		ScaledCave = Images.CaveMap.getScaledInstance(3680, 4000, Image.SCALE_SMOOTH); // 368x400 pixel image
-
+		ScaledTown = Images.CaveMap.getScaledInstance(4960, 3840, Image.SCALE_SMOOTH); // 496 x 384
 	}
 
 	
