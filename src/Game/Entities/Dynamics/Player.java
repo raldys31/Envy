@@ -13,6 +13,7 @@ import Game.GameStates.State;
 import Game.World.Walls;
 import Game.World.InWorldAreas.CaveArea;
 import Game.World.InWorldAreas.InWorldWalls;
+import Game.World.InWorldAreas.TownArea;
 import Main.GameSetUp;
 import Main.Handler;
 import Resources.Animation;
@@ -232,11 +233,22 @@ public class Player extends BaseDynamicEntity implements Fighter {
 						}
 						
 						if(w.getType().equals("Door Town")) {
-							
+							checkInWorld = true;
+							InWorldState.townArea.oldPlayerXCoord = (int) (handler.getXDisplacement());
+							InWorldState.townArea.oldPlayerYCoord = (int) (handler.getYDisplacement());
+							TownArea.isInTown = true;
+							setWidthAndHeight(InAreaWidthFrontAndBack, InAreaHeightFront);
+							handler.setXInWorldDisplacement(TownArea.playerXSpawn);
+							handler.setYInWorldDisplacement(TownArea.playerYSpawn);
+							GameSetUp.LOADING = true;
+							handler.setArea("Town");
+
+							//handler.getGame().getMusicHandler().set_changeMusic("res/music/Cave.mp3");
+							//handler.getGame().getMusicHandler().play();
+							//handler.getGame().getMusicHandler().setVolume(0.4);
+
+							State.setState(handler.getGame().inWorldState.setArea(InWorldState.townArea));
 							System.out.println("Enter Town");
-							
-							//aqui va el change de state, igual que en cave
-							
 						}
 
 						if (w.getType().equals("Door S")) {

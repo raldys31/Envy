@@ -181,7 +181,7 @@ public class Images {
 
 
 			CaveMap = ImageIO.read(getClass().getResourceAsStream("/Worlds/CaveMap.png"));
-			TownMap = ImageIO.read(getClass().getResourceAsStream("/Worlds/TownMap.png"));
+			TownMap = ImageIO.read(getClass().getResourceAsStream("/Worlds/Town2.png"));
 			tree = ImageIO.read(getClass().getResourceAsStream("/Sheets/Tree.png"));
 			title = ImageIO.read(getClass().getResourceAsStream("/Sheets/menuImage.png"));
 			title2 = ImageIO.read(getClass().getResourceAsStream("/Sheets/Title.png"));
@@ -784,7 +784,7 @@ public class Images {
 //		map[3] = toBufferedImage(Scaledmap[1]);
 		
 		ScaledCave = Images.CaveMap.getScaledInstance(3680, 4000, Image.SCALE_SMOOTH); // 368x400 pixel image
-		ScaledTown = Images.CaveMap.getScaledInstance(4960, 3840, Image.SCALE_SMOOTH); // 496 x 384
+		ScaledTown = Images.TownMap.getScaledInstance(1232*5, 936*5, Image.SCALE_SMOOTH); //1232x936
 	}
 
 	

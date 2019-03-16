@@ -133,7 +133,7 @@ public class Handler {
 	
 	public void showMessage(String message, String title) {
 		JOptionPane.showMessageDialog(null, message, title, 
-				JOptionPane.INFORMATION_MESSAGE, Images.icon);
+				JOptionPane.INFORMATION_MESSAGE, Images.bowserIcon);
 	}
 
 
