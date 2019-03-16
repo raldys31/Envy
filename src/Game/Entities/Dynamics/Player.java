@@ -242,13 +242,13 @@ public class Player extends BaseDynamicEntity implements Fighter {
 							handler.setYInWorldDisplacement(TownArea.playerYSpawn);
 							GameSetUp.LOADING = true;
 							handler.setArea("Town");
+							
 
 							//handler.getGame().getMusicHandler().set_changeMusic("res/music/Cave.mp3");
 							//handler.getGame().getMusicHandler().play();
 							//handler.getGame().getMusicHandler().setVolume(0.4);
 
 							State.setState(handler.getGame().inWorldState.setArea(InWorldState.townArea));
-							System.out.println("Enter Town");
 						}
 
 						if (w.getType().equals("Door S")) {
@@ -298,6 +298,42 @@ public class Player extends BaseDynamicEntity implements Fighter {
 							CaveArea.isInCave = false;
 							checkInWorld = false;
 							System.out.println("Left Cave");
+							setWidthAndHeight(InMapWidthFrontAndBack, InMapHeightFront);
+						}
+					}
+				}
+			}
+			
+			else if (TownArea.isInTown) {
+				for (InWorldWalls iw : TownArea.townWalls) {
+					if (nextArea.intersects(iw)) {
+						if (iw.getType().equals("Wall"))
+							PushPlayerBack();
+						else {
+
+							if (iw.getType().equals("Start Exit")) {
+
+								handler.setXDisplacement(handler.getXDisplacement() - 450); // Sets the player x/y
+								// outside the
+								handler.setYDisplacement(handler.getYDisplacement() + 400); // Cave
+
+							} else if (iw.getType().equals("End Exit")) {
+
+								handler.setXDisplacement(InWorldState.townArea.oldPlayerXCoord);
+								handler.setYDisplacement(InWorldState.townArea.oldPlayerYCoord);
+							}
+
+							GameSetUp.LOADING = true;
+							handler.setArea("None");
+
+							//	                    	handler.getGame().getMusicHandler().set_changeMusic("res/music/OverWorld.mp3");
+							//	                        handler.getGame().getMusicHandler().play();
+							//	                        handler.getGame().getMusicHandler().setVolume(0.2);
+
+							State.setState(handler.getGame().mapState);
+							TownArea.isInTown = false;
+							checkInWorld = false;
+							System.out.println("Left Town");
 							setWidthAndHeight(InMapWidthFrontAndBack, InMapHeightFront);
 						}
 					}
