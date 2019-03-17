@@ -232,7 +232,7 @@ public class Player extends BaseDynamicEntity implements Fighter {
 							State.setState(handler.getGame().inWorldState.setArea(InWorldState.caveArea));
 						}
 						
-						if(w.getType().equals("Door Town")) {
+						 if(w.getType().equals("Door Town")) {
 							checkInWorld = true;
 							InWorldState.townArea.oldPlayerXCoord = (int) (handler.getXDisplacement());
 							InWorldState.townArea.oldPlayerYCoord = (int) (handler.getYDisplacement());

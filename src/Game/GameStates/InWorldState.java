@@ -39,7 +39,12 @@ public class InWorldState extends State{
                 return;
             }
             if (currentArea != null) {
-                currentArea.tick();
+                if(currentArea instanceof CaveArea) {
+                		caveArea.tick();
+                }
+                else if(currentArea instanceof TownArea) {
+                		townArea.tick();
+                }
             }
             GameSetUp.loadCounter++;
         }else {
@@ -48,27 +53,37 @@ public class InWorldState extends State{
                 GameSetUp.SWITCHING=true;
                 State.setState(handler.getGame().pauseState);
             }else {
-                if (currentArea != null) {
-                    currentArea.tick();
-                }
+            	if (currentArea != null) {
+            		if(currentArea instanceof CaveArea) {
+            			caveArea.tick();
+            		}
+            		else if(currentArea instanceof TownArea) {
+            			townArea.tick();
+            		}
+            	}
             }
         }
 
     }
 
-    @Override
-    public void render(Graphics g) {
+        @Override
+        public void render(Graphics g) {
 
-        if(!GameSetUp.LOADING) {
-            Graphics2D g2 = (Graphics2D) g;
-            if (currentArea != null) {
-                currentArea.render(g);
-            }
-        }else{
-            g.drawImage(Images.Loading,0,0,handler.getWidth(),handler.getHeight(),null);
+        	if(!GameSetUp.LOADING) {
+        		Graphics2D g2 = (Graphics2D) g;
+        		if (currentArea != null) {
+        			if(currentArea instanceof CaveArea) {
+        				caveArea.render(g2);
+        			}
+        			else if(currentArea instanceof TownArea) {
+        				townArea.render(g2);
+        			}
+        		}
+        	}else{
+        		g.drawImage(Images.Loading,0,0,handler.getWidth(),handler.getHeight(),null);
+        	}
+
         }
-
-    }
 
     public State setArea(BaseArea area){
         currentArea = area;
