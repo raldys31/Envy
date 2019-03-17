@@ -156,6 +156,7 @@ public class Images {
 
 		PEnemyIdle = new BufferedImage[7];
 		WEnemyIdle = new BufferedImage[3];
+		CEnemyIdle = new BufferedImage[7];
 
 		Enemy = new BufferedImage[8];
 		SEnemy = new BufferedImage[8];
@@ -280,6 +281,14 @@ public class Images {
 			PEnemyIdle[4] = PikachuEnemySheet.crop(155, 0, 36, 40);
 			PEnemyIdle[5] = PikachuEnemySheet.crop(192, 0, 37, 40);
 			PEnemyIdle[6] = PikachuEnemySheet.crop(233, 0, 37, 40);
+			
+			CEnemyIdle[0] = CharizardEnemySheet.crop(0, 0, 117, 80);
+			CEnemyIdle[1] = CharizardEnemySheet.crop(117, 0, 120, 80);
+			CEnemyIdle[2] = CharizardEnemySheet.crop(237, 0, 120, 80);
+			CEnemyIdle[3] = CharizardEnemySheet.crop(357, 0, 118, 78);
+			CEnemyIdle[4] = CharizardEnemySheet.crop(474, 0, 117, 80);
+			CEnemyIdle[5] = CharizardEnemySheet.crop(590, 0, 112, 79);
+			CEnemyIdle[6] = CharizardEnemySheet.crop(701, 0, 116, 78);
 			
 			pikachuSheet =  new SpriteSheet(ImageIO.read(getClass().getResourceAsStream("/Sheets/pokeSprites.png")));
 
