@@ -313,9 +313,9 @@ public class Player extends BaseDynamicEntity implements Fighter {
 
 							if (iw.getType().equals("Start Exit")) {
 
-								handler.setXDisplacement(handler.getXDisplacement() - 450); // Sets the player x/y
+								handler.setXDisplacement(handler.getXDisplacement() - 100); // Sets the player x/y
 								// outside the
-								handler.setYDisplacement(handler.getYDisplacement() + 400); // Cave
+								handler.setYDisplacement(handler.getYDisplacement() + 100); // Cave
 
 							} else if (iw.getType().equals("End Exit")) {
 
