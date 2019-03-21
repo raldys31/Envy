@@ -19,7 +19,7 @@ public class TownArea extends BaseArea {
     public static boolean isInTown = false;
 
     private int imageWidth = 4960, imageHeight = 3840;
-    public static final int playerXSpawn = -600;
+    public static final int playerXSpawn = -200;
     		;
 	public static final int playerYSpawn = -3300;
 
@@ -37,7 +37,7 @@ public class TownArea extends BaseArea {
 
         this.entityManager = entityManager;
 
-        this.entityManager.AddEntity(handler.newEnemy(Images.PEnemyIdle,handler,700, 2000,"InWorldState","Sergio","Town","EnemyOne",150,25,80,1,8,12,20,10,20,10,1,10,"None","Thunder",null,null)); //lvl 2 difficulty
+        this.entityManager.AddEntity(handler.newEnemy(Images.PEnemyIdle,handler,1600, 4000,"InWorldState","Sergio","Town","EnemyOne",150,25,80,1,8,12,20,10,20,10,1,10,"None","Thunder",null,null)); //lvl 2 difficulty
        // this.entityManager.AddEntity(handler.newEnemy(Images.PEnemyIdle,handler,2922, 1471,"InWorldState","Cave Dweller","Town","EnemyOne",100,25,60,10,1,12,20,10,20,13,1,10,"None","Thunder",null,null)); // lvl 1 difficulty
         
       //statics entities
@@ -180,6 +180,7 @@ public class TownArea extends BaseArea {
         
         //Exit
         townWalls.add(new InWorldWalls(handler, 6061, 2568, 89, 119, "Start Exit"));	
+        //townWalls.add(new InWorldWalls(handler, 6061, 2568, 89, 119, "Start Exit"));
 
     }
 

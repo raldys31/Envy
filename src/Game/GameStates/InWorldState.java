@@ -45,6 +45,7 @@ public class InWorldState extends State{
                 else if(currentArea instanceof TownArea) {
                 		townArea.tick();
                 }
+                else currentArea.tick();
             }
             GameSetUp.loadCounter++;
         }else {
@@ -60,6 +61,7 @@ public class InWorldState extends State{
             		else if(currentArea instanceof TownArea) {
             			townArea.tick();
             		}
+            		else currentArea.tick();
             	}
             }
         }
@@ -78,6 +80,7 @@ public class InWorldState extends State{
         			else if(currentArea instanceof TownArea) {
         				townArea.render(g2);
         			}
+        			else currentArea.render(g2);
         		}
         	}else{
         		g.drawImage(Images.Loading,0,0,handler.getWidth(),handler.getHeight(),null);

@@ -2,6 +2,8 @@ package Game.Entities.Statics;
 
 import java.awt.Graphics;
 import java.awt.Rectangle;
+
+import Game.World.InWorldAreas.TownArea;
 import Main.Handler;
 import Resources.Images;
 
@@ -25,8 +27,19 @@ public class Bowser extends BaseStaticEntity {
 	
 	@Override
 	public void render(Graphics g) {
-		g.drawImage(Images.bowser, (int)(handler.getXDisplacement() + xPosition),(int)( handler.getYDisplacement() + yPosition), width, height, null);
-		collision = new Rectangle((int)(handler.getXDisplacement() + xPosition),(int)( handler.getYDisplacement() + yPosition), width, height);
+		if(TownArea.isInTown) {
+			g.drawImage(Images.bowser, (int)(handler.getXInWorldDisplacement() + xPosition),
+					(int)( handler.getYInWorldDisplacement() + yPosition), width, height, null);
+			collision = new Rectangle((int)(handler.getXInWorldDisplacement()),
+					(int)( handler.getYInWorldDisplacement() + yPosition), width+30, height);
+		}
+		else {
+			g.drawImage(Images.bowser, (int)(handler.getXDisplacement() + xPosition),
+					(int)( handler.getYDisplacement() + yPosition), width, height, null);
+			collision = new Rectangle((int)(handler.getXDisplacement() + xPosition),
+					(int)( handler.getYDisplacement() + yPosition), width, height);
+		}
+		
 	}
 	
 	@Override
