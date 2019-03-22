@@ -365,9 +365,9 @@ public class Images {
 			scyther_right[1] = scytherSheet.crop(320, 65, 34, 32);
 			scyther_right[2] = scytherSheet.crop(353, 65, 31, 32);
 			
-			scyther_back[0] = pikachuSheet.crop(287, 96, 33, 33);
-			scyther_back[1] = pikachuSheet.crop(321, 99, 31, 31);
-			scyther_back[2] = pikachuSheet.crop(353, 96, 31, 33);
+			scyther_back[0] = scytherSheet.crop(287, 96, 33, 33);
+			scyther_back[1] = scytherSheet.crop(321, 99, 31, 31);
+			scyther_back[2] = scytherSheet.crop(353, 96, 31, 33);
 			
 			playerSheet =  new SpriteSheet(ImageIO.read(getClass().getResourceAsStream("/Sheets/player.png")));
 

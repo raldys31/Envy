@@ -29,7 +29,7 @@ public class Bowser extends BaseStaticEntity {
 	public void render(Graphics g) {
 		if(TownArea.isInTown) {
 			g.drawImage(Images.bowser, (int)(handler.getXInWorldDisplacement() + xPosition),
-					(int)( handler.getYInWorldDisplacement() + yPosition), width, height, null);
+					(int)( handler.getYInWorldDisplacement() + yPosition), 200, 200, null);
 			collision = new Rectangle((int)(handler.getXInWorldDisplacement()),
 					(int)( handler.getYInWorldDisplacement() + yPosition), width+30, height);
 		}
