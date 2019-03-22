@@ -60,14 +60,22 @@ public class Images {
 	public static BufferedImage[] charizard_left;
 	public static BufferedImage[] charizard_right;
 	public static BufferedImage[] charizard_back;
+	
+	public static SpriteSheet scytherSheet;
+	public static BufferedImage[] scyther_front;
+	public static BufferedImage[] scyther_left;
+	public static BufferedImage[] scyther_right;
+	public static BufferedImage[] scyther_back;
 
 	public static BufferedImage[] PEnemyIdle;
 	public static BufferedImage[] WEnemyIdle;
 	public static BufferedImage[] CEnemyIdle;
+	public static BufferedImage[] SEnemyIdle;
 
 	public static SpriteSheet PikachuEnemySheet;
 	public static SpriteSheet WEnemySheet;
 	public static SpriteSheet CharizardEnemySheet;
+	public static SpriteSheet ScytherEnemySheet;
 
 	public static BufferedImage QST;
 
@@ -153,10 +161,16 @@ public class Images {
 		charizard_right = new BufferedImage[4];
 		charizard_left = new BufferedImage[4];
 		charizard_back = new BufferedImage[4];
+		
+		scyther_front = new BufferedImage[3];
+		scyther_right = new BufferedImage[3];
+		scyther_left = new BufferedImage[3];
+		scyther_back = new BufferedImage[3];
 
 		PEnemyIdle = new BufferedImage[7];
 		WEnemyIdle = new BufferedImage[3];
 		CEnemyIdle = new BufferedImage[7];
+		SEnemyIdle = new BufferedImage[5];
 
 		Enemy = new BufferedImage[8];
 		SEnemy = new BufferedImage[8];
@@ -187,6 +201,7 @@ public class Images {
 			PikachuEnemySheet = new SpriteSheet(ImageIO.read(getClass().getResourceAsStream("/Sheets/P-enemy.png")));
 			WEnemySheet = new SpriteSheet(ImageIO.read(getClass().getResourceAsStream("/Sheets/W-enemy.png")));
 			CharizardEnemySheet = new SpriteSheet(ImageIO.read(getClass().getResourceAsStream("/Sheets/charizardEnemySheet.png")));
+			ScytherEnemySheet = new SpriteSheet(ImageIO.read(getClass().getResourceAsStream("/Sheets/ScytherEnemySheet.png")));
 			
 			projectTitle = ImageIO.read(getClass().getResourceAsStream("/Buttons/ProjectWord.png"));
 			ghost = ImageIO.read(getClass().getResourceAsStream("/Sheets/ghost.png"));
@@ -290,6 +305,12 @@ public class Images {
 			CEnemyIdle[5] = CharizardEnemySheet.crop(590, 0, 112, 79);
 			CEnemyIdle[6] = CharizardEnemySheet.crop(701, 0, 116, 78);
 			
+			SEnemyIdle[0] = ScytherEnemySheet.crop(0, 0, 83, 66);
+			SEnemyIdle[1] = ScytherEnemySheet.crop(83, 0, 77, 66);
+			SEnemyIdle[2] = ScytherEnemySheet.crop(158, 0, 82, 66);
+			SEnemyIdle[3] = ScytherEnemySheet.crop(241, 0, 73, 66);
+			SEnemyIdle[4] = ScytherEnemySheet.crop(312, 0, 81, 66);
+			
 			pikachuSheet =  new SpriteSheet(ImageIO.read(getClass().getResourceAsStream("/Sheets/pokeSprites.png")));
 
 			pikachu_front[0] = pikachuSheet.crop(273, 13, 27, 27);
@@ -329,7 +350,25 @@ public class Images {
 			charizard_back[1] = charizardSheet.crop(65, 202, 62, 54);
 			charizard_back[2] = charizardSheet.crop(131, 199, 56, 56);
 			charizard_front[3] = charizardSheet.crop(194, 205, 59, 51);
-
+			
+			scytherSheet =  new SpriteSheet(ImageIO.read(getClass().getResourceAsStream("/Sheets/PokemonSprites.png")));
+			
+			scyther_front[0] = scytherSheet.crop(286, 3, 35, 30);
+			scyther_front[1] = scytherSheet.crop(320, 3, 32, 30);
+			scyther_front[2] = scytherSheet.crop(352, 3, 32, 31);
+			
+			scyther_left[0] = scytherSheet.crop(285, 34, 33, 30);
+			scyther_left[1] = scytherSheet.crop(321, 34, 31, 31);
+			scyther_left[2] = scytherSheet.crop(352, 34, 32, 32);
+			
+			scyther_right[0] = scytherSheet.crop(286, 65, 35, 32);
+			scyther_right[1] = scytherSheet.crop(320, 65, 34, 32);
+			scyther_right[2] = scytherSheet.crop(353, 65, 31, 32);
+			
+			scyther_back[0] = pikachuSheet.crop(287, 96, 33, 33);
+			scyther_back[1] = pikachuSheet.crop(321, 99, 31, 31);
+			scyther_back[2] = pikachuSheet.crop(353, 96, 31, 33);
+			
 			playerSheet =  new SpriteSheet(ImageIO.read(getClass().getResourceAsStream("/Sheets/player.png")));
 
 			player_front[0] = playerSheet.crop(1, 6, 15, 27);

@@ -3,6 +3,7 @@ package Main;
 import Game.Entities.Dynamics.BaseHostileEntity;
 import Game.Entities.Dynamics.Charizard;
 import Game.Entities.Dynamics.EnemyOne;
+import Game.Entities.Dynamics.Scyther;
 import Input.KeyManager;
 import Input.MouseManager;
 import Resources.Images;
@@ -142,8 +143,8 @@ public class Handler {
 									  String typeOfEnemy, double hp, double mana, double xp, double lvl, double str, double def,
 									  double intl, double mr, double cons, double acc, double evs, double initiative,
 									  String Class, String Skill, String[] buffs, String[] debuffs){
-		if(typeOfEnemy.equals("EnemyOne")) {
-			EnemyOne n = new EnemyOne(handler, xPosition, yPosition, state, name, area,images);
+		if(typeOfEnemy.equals("Scyther")) {
+			Scyther n = new Scyther(handler, xPosition, yPosition, state, name, area,images);
 			n.setAcc(acc);
 			n.setBuffs(buffs);
 			n.setClass(Class);
