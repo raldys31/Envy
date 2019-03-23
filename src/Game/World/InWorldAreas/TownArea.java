@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import Game.Entities.EntityManager;
 import Game.Entities.Statics.Bowser;
 import Game.Entities.Statics.LightStatue;
+import Game.Entities.Statics.Toad;
 import Game.Entities.Statics.Tree;
 import Game.World.Walls;
 
@@ -43,7 +44,7 @@ public class TownArea extends BaseArea {
         this.entityManager.AddEntity(handler.newEnemy(Images.MEnemyIdle,handler,5181, 1974,"InWorldState","Mewtwo","Town","Mewtwo",150,25,80,1,8,12,20,10,20,10,1,10,"None","Thunder",null,null)); //lvl 2 difficulty
         
       //statics entities
-        this.entityManager.AddEntity(new Bowser(handler, 1866, 3455));
+        this.entityManager.AddEntity(new Toad(handler, 2885, 1350));
         
         townWalls = new ArrayList<>();
         AddWalls();
