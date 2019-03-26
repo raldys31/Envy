@@ -82,7 +82,7 @@ public class FightState extends InWorldState{
 
         this.enemy.lvlAdjust();
         playerRect = new Rectangle( (int) handler.getWidth() / 5, entityY, 100, 100);
-        enemyRect = new Rectangle((int) handler.getWidth() * 4/ 5 - 70,entityY, 70, 70);
+        enemyRect = new Rectangle((int) handler.getWidth() * 4/ 5 - 70,entityY, 100, 100);
 
         setUiManager();
         backgroundSelect(prevState);
