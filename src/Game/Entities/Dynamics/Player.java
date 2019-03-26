@@ -114,9 +114,6 @@ public class Player extends BaseDynamicEntity implements Fighter {
 		if (GameSetUp.DEBUGMODE) {
 			g2.draw(nextArea);
 			g2.draw(getCollision());
-			for(BaseEntity e: this.handler.getEntityManager().getEntities()) {
-				g2.draw(e.getCollision());
-			}
 		}
 	}
 
@@ -359,21 +356,25 @@ public class Player extends BaseDynamicEntity implements Fighter {
 			if(e instanceof Bowser) {
 				if(e.getCollision().intersects(getCollision())) {
 					if(index2==0) {
-						if(getSkill().equals("none")) {
-							this.handler.showMessage("Need a skill brooo!", "Need Skill"); //el metodo esta en el handler para asi usarlo en cualquier state ;)
-							index2 = 1;
-							PushPlayerBack();
+						if(TownArea.isInTown) {
+							System.out.println("Choco");
 						}
-						else if(index==0){
-							e.setXOffset(1638+80);
-							this.handler.showMessage("CONGRATS!!", "Got a Skill");
-							index = 1;
+						else {
+							if(getSkill().equals("none")) {
+								this.handler.showMessage("Need a skill brooo!", "Need Skill"); //el metodo esta en el handler para asi usarlo en cualquier state ;)
+								index2 = 1;
+								PushPlayerBack();
+							}
+							else if(index==0){
+								e.setXOffset(1638+80);
+								this.handler.showMessage("CONGRATS!!", "Got a Skill");
+								index = 1;
+							}
 						}
 					}
 				}
 				else index2=0;	
 			}
-
 		}
 	}
 
