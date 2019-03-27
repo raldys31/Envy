@@ -30,25 +30,15 @@ public class Bowser extends BaseStaticEntity {
 	@Override
 	public void render(Graphics g) {
 		Graphics2D g2 = (Graphics2D) g;
-		if(TownArea.isInTown) {
-			g.drawImage(Images.bowser, (int)(handler.getXInWorldDisplacement() + xPosition),
-					(int)( handler.getYInWorldDisplacement() + yPosition), 200, 200, null);
-			collision = new Rectangle((int)(handler.getXInWorldDisplacement() + xPosition),
-					(int)( handler.getYInWorldDisplacement() + yPosition), 225,250);
-			if (GameSetUp.DEBUGMODE) {
-				g2.draw(getCollision());
-			}
+
+		g.drawImage(Images.bowser, (int)(handler.getXDisplacement() + xPosition),
+				(int)( handler.getYDisplacement() + yPosition), width, height, null);
+		collision = new Rectangle((int)(handler.getXDisplacement() + xPosition),
+				(int)( handler.getYDisplacement() + yPosition), width, height);
+		if (GameSetUp.DEBUGMODE) {
+			g2.draw(getCollision());
 		}
-		else {
-			g.drawImage(Images.bowser, (int)(handler.getXDisplacement() + xPosition),
-					(int)( handler.getYDisplacement() + yPosition), width, height, null);
-			collision = new Rectangle((int)(handler.getXDisplacement() + xPosition),
-					(int)( handler.getYDisplacement() + yPosition), width, height);
-			if (GameSetUp.DEBUGMODE) {
-				g2.draw(getCollision());
-			}
-		}
-		
+
 	}
 	
 	@Override

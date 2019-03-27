@@ -7,6 +7,7 @@ import java.awt.Rectangle;
 
 import Game.Entities.BaseEntity;
 import Game.Entities.Statics.Bowser;
+import Game.Entities.Statics.Toad;
 import Game.Entities.Statics.Tree;
 import Game.GameStates.InWorldState;
 import Game.GameStates.State;
@@ -356,27 +357,24 @@ public class Player extends BaseDynamicEntity implements Fighter {
 			if(e instanceof Bowser) {
 				if(e.getCollision().intersects(getCollision())) {
 					if(index2==0) {
-						if(TownArea.isInTown) {
-							System.out.println("Choco");
+						if(getSkill().equals("none")) {
+							this.handler.showMessage("Need a skill brooo!", "Need Skill", Images.bowserIcon); //el metodo esta en el handler para asi usarlo en cualquier state ;)
+							index2 = 1;
+							PushPlayerBack();
 						}
-						else {
-							if(getSkill().equals("none")) {
-								this.handler.showMessage("Need a skill brooo!", "Need Skill"); //el metodo esta en el handler para asi usarlo en cualquier state ;)
-								index2 = 1;
-								PushPlayerBack();
-							}
-							else if(index==0){
-								e.setXOffset(1638+80);
-								this.handler.showMessage("CONGRATS!!", "Got a Skill");
-								index = 1;
-							}
+						else if(index==0){
+							e.setXOffset(1638+80);
+							this.handler.showMessage("CONGRATS!!", "Got a Skill", Images.bowserIcon);
+							index = 1;
 						}
 					}
 				}
-				else index2=0;	
+				else index2=0;
 			}
 		}
 	}
+	
+	
 
 	/**
 	 *

@@ -28,6 +28,7 @@ public class TownArea extends BaseArea {
 
     public static ArrayList<InWorldWalls> townWalls;
 
+    
     public TownArea(Handler handler, EntityManager entityManager) {
         super(handler, entityManager);
         name="Town";
@@ -182,8 +183,7 @@ public class TownArea extends BaseArea {
         townWalls.add(new InWorldWalls(handler, 5875, 2517, 99, 45, "Wall"));	
         
         //Exit
-        townWalls.add(new InWorldWalls(handler, 6061, 2568, 89, 119, "Start Exit"));	
-        //townWalls.add(new InWorldWalls(handler, 6061, 2568, 89, 119, "Start Exit"));
+        townWalls.add(new InWorldWalls(handler, 6061, 2568, 89, 119, "Start Exit"));
 
     }
 

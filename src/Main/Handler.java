@@ -12,6 +12,7 @@ import Resources.Images;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
+import javax.swing.Icon;
 import javax.swing.JOptionPane;
 
 import Game.Entities.EntityManager;
@@ -134,11 +135,14 @@ public class Handler {
 		Area = area;
 	}
 	
-	public void showMessage(String message, String title) {
+	public void showMessage(String message, String title, Icon icon) {
 		JOptionPane.showMessageDialog(null, message, title, 
-				JOptionPane.INFORMATION_MESSAGE, Images.bowserIcon);
+				JOptionPane.INFORMATION_MESSAGE, icon);
 	}
 
+	public int showOptionMessage(String message) {
+		return JOptionPane.showConfirmDialog(null, message);
+	}
 
 	public BaseHostileEntity newEnemy(BufferedImage[] images,Handler handler, int xPosition, int yPosition, String state, String name, String area,
 									  String typeOfEnemy, double hp, double mana, double xp, double lvl, double str, double def,
