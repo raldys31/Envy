@@ -42,33 +42,43 @@ public class Toad extends BaseStaticEntity {
 				g2.draw(getCollision());
 			}
 			checkCollision();
+			//checkIfSelectedQuest();
 			checkQuest();
 		}
 		
 	}
-	
+
 	private void checkCollision() {
 		int selected;
 		if(inArea() && count==3) {
 			count=0;
-				if(!completedQuest) {
-					selected = this.handler.showOptionMessage("Want a fire skill boi?", "Quest", Images.toadIcon);
-					if(selected == 0) {
-						this.handler.showMessage("Defeat en enemy on this town", "Quest", Images.toadIcon);
-						selectedQuests=true;
-					}
-					move();
-					if(selectedQuests) {
-						this.handler.showMessage("Complete the quest boi!!!", "Quest", Images.toadIcon);
-					}
+			if(!completedQuest) {
+				selected = this.handler.showOptionMessage("Want a skill boi?", "Quest", Images.toadIcon);
+				if(selected == 0) {
+					this.handler.showMessage("Defeat en enemy on this town", "Quest", Images.toadIcon);
+					selectedQuests=true;
 				}
-				
-				
-				if(completedQuest&&index==0) {
-					this.handler.showMessage("You gained FireSkill", "Quest Completed.", Images.toadIcon);
-					move();
-					index=1;
-				}
+				move();
+			}
+
+			if(completedQuest&&index==0) {
+				this.handler.showMessage("You gained IceSkill", "Quest Completed.", Images.toadIcon);
+				move();
+				index=1;
+			}
+		}
+		else if(inArea()&&count<3){
+			count++;
+		}
+	}
+	
+	private void checkIfSelectedQuest() {
+		if(inArea() && count==3) {
+			count=0;
+			if(selectedQuests && !completedQuest) {
+				this.handler.showMessage("Complete the quest!!", "Quest", Images.toadIcon);
+				move();
+			}
 		}
 		else if(inArea()&&count<3){
 			count++;
@@ -81,10 +91,10 @@ public class Toad extends BaseStaticEntity {
 			this.handler.setYInWorldDisplacement(this.handler.getYInWorldDisplacement()-150);
 			break;
 		case "Right":
-			this.handler.setXInWorldDisplacement(this.handler.getXInWorldDisplacement()+50);
+			this.handler.setYInWorldDisplacement(this.handler.getYInWorldDisplacement()-150);
 			break;
 		case "Left":
-			this.handler.setXInWorldDisplacement(this.handler.getXInWorldDisplacement()-50);
+			this.handler.setYInWorldDisplacement(this.handler.getYInWorldDisplacement()-150);
 			break;
 		}
 	}
@@ -92,8 +102,8 @@ public class Toad extends BaseStaticEntity {
 	private void checkQuest() {
 		if(completedQuest) {
 			if(index2==0) {
-				handler.getEntityManager().getPlayer().setSkill("FireSkill");
-				System.out.println(handler.getEntityManager().getPlayer().getSkill());
+				handler.getEntityManager().getPlayer().setSkill("IceSkill");
+				System.out.println("Player gained "+handler.getEntityManager().getPlayer().getSkill());
 				index2=1;
 			}
 		}

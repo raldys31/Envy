@@ -226,13 +226,14 @@ public class FightState extends InWorldState{
             		g.drawString( handler.getEntityManager().getPlayer().getLvl() + "  -> " + (handler.getEntityManager().getPlayer().getLvl()+1),handler.getWidth()/3 + 150,handler.getHeight()/2 + 230);
             	}
 
-            	//completed at least one quest
-            	if(!TownArea.isInTown) {
-            		if(handler.getEntityManager().getPlayer().getSkill().equals("none")) {
-            			handler.getEntityManager().getPlayer().setSkill("IceSkill");
-            		}
-            	}
+            
+//            	if(!TownArea.isInTown) {
+//            		if(handler.getEntityManager().getPlayer().getSkill().equals("none")) {
+//            			handler.getEntityManager().getPlayer().setSkill("IceSkill");
+//            		}
+//            	}
             	
+            	//completed quest
             	if(TownArea.isInTown) {
             		if(Toad.selectedQuests) {
             			Toad.completedQuest = true;
