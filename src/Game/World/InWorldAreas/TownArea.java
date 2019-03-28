@@ -41,7 +41,7 @@ public class TownArea extends BaseArea {
 
         this.entityManager.AddEntity(handler.newEnemy(Images.PEnemyIdle,handler,5097, 1370,"InWorldState","Pikachu","Town","EnemyOne",150,25,80,1,8,12,20,10,20,10,1,10,"None","Thunder",null,null)); //lvl 2 difficulty
         this.entityManager.AddEntity(handler.newEnemy(Images.CEnemyIdle,handler,4153, 1366,"InWorldState","Charizard","Town","Charizard",100,25,60,10,1,12,20,10,20,13,1,10,"None","Thunder",null,null)); // lvl 1 difficulty
-        this.entityManager.AddEntity(handler.newEnemy(Images.SEnemyIdle,handler,981, 3238,"InWorldState","Scyther","Town","Scyther",150,25,80,1,8,12,20,10,20,10,1,10,"None","Thunder",null,null)); //lvl 2 difficulty
+        this.entityManager.AddEntity(handler.newEnemy(Images.SEnemyIdle,handler,1900, 2900,"InWorldState","Scyther","Town","Scyther",150,25,80,1,8,12,20,10,20,10,1,10,"None","Thunder",null,null)); //lvl 2 difficulty
         this.entityManager.AddEntity(handler.newEnemy(Images.MEnemyIdle,handler,5181, 1974,"InWorldState","Mewtwo","Town","Mewtwo",150,25,80,1,8,12,20,10,20,10,1,10,"None","Thunder",null,null)); //lvl 2 difficulty
         
       //statics entities

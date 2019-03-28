@@ -44,8 +44,9 @@ public class WorldManager {
 		
 
 		this.entityManager.AddEntity(handler.newEnemy(Images.CEnemyIdle,handler,500, 800,"MapState","Charizard","None","Charizard",100,25,40,1,8,12,20,10,20,10,1,5,"None","Fire",null,null)); // lvl 0 dificulty
-		this.entityManager.AddEntity(handler.newEnemy(Images.PEnemyIdle,handler,1400, 600,"MapState","Common Rat","None","EnemyOne",100,25,40,1,8,12,20,10,20,10,1,5,"None","Fire",null,null)); // lvl 0 dificulty
-		this.entityManager.AddEntity(handler.newEnemy(Images.PEnemyIdle,handler,2400, -200,"MapState","Common Rat","None","EnemyOne",100,25,40,1,8,12,20,10,20,10,1,5,"None","Fire",null,null)); // lvl 0 dificulty
+		this.entityManager.AddEntity(handler.newEnemy(Images.PEnemyIdle,handler,1400, 600,"MapState","Pikachu","None","EnemyOne",100,25,40,1,8,12,20,10,20,10,1,5,"None","Fire",null,null)); // lvl 0 dificulty
+		this.entityManager.AddEntity(handler.newEnemy(Images.MEnemyIdle,handler,2400, -200,"MapState","Mewtwo","None","Mewtwo",100,25,40,1,8,12,20,10,20,10,1,5,"None","Fire",null,null)); // lvl 0 dificulty
+		this.entityManager.AddEntity(handler.newEnemy(Images.SEnemyIdle,handler,500, 200,"MapState","Scyther","None","Scyther",150,25,80,1,8,12,20,10,20,10,1,10,"None","FireSkill",null,null)); //lvl 2 difficulty
 		
 		this.entityManager.AddEntity(circle);
 

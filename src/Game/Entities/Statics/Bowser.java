@@ -47,7 +47,7 @@ public class Bowser extends BaseStaticEntity {
 		if(inArea() && count==3) {
 			count=0;
 					if(handler.getEntityManager().getPlayer().getSkill().equals("none")) {
-						this.handler.showMessage("Need a skill brooo!", "Need Skill", Images.bowserIcon);
+					//	this.handler.showMessage("Need a skill brooo!", "Need Skill", Images.bowserIcon);
 						switch(handler.getEntityManager().getPlayer().getFacing()) {
 						case "Up":
 							this.handler.setYDisplacement(this.handler.getYDisplacement()-150);

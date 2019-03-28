@@ -668,8 +668,7 @@ public class Player extends BaseDynamicEntity implements Fighter {
 	}
 
 	public void fillHealthAndMana() {
-		setHealth(200);
-		setMana(100);
+		setHealth(maxHealth);
+		setMana(maxMana);
 	}
-
 }
