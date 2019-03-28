@@ -140,7 +140,7 @@ public class Handler {
 				JOptionPane.INFORMATION_MESSAGE, icon);
 	}
 
-	public int showOptionMessage(String message) {
+	public int showOptionMessage(String message, Icon icon) {
 		return JOptionPane.showConfirmDialog(null, message);
 	}
 

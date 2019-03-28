@@ -48,15 +48,15 @@ public class Toad extends BaseStaticEntity {
 		if(inArea()) {
 			if(index==0) {
 				if(handler.getEntityManager().getPlayer().getSkill().equals("none")) {
-					selected = this.handler.showOptionMessage("Want a skill boi?");
+					selected = this.handler.showOptionMessage("Want a skill boi?", Images.toadIcon);
 					index=1;
 					if(selected == 0) {
-						this.handler.showMessage("Defeat en enemy on this town", "Quest", Images.bowserIcon);
+						this.handler.showMessage("Defeat en enemy on this town", "Quest", Images.toadIcon);
 						handler.getEntityManager().getPlayer().setYOffset(handler.getYInWorldDisplacement() + yPosition+300);
 					}
 				}
 				else if(!handler.getEntityManager().getPlayer().getSkill().equals("none")) {
-					this.handler.showMessage("Defeated an enemy!", "CONGRATS!!", Images.icon);
+					this.handler.showMessage("Defeated an enemy!", "CONGRATS!!", Images.toadIcon);
 					handler.getEntityManager().getPlayer().setYOffset(handler.getYInWorldDisplacement() + yPosition + 300);
 					index=0;
 				}

@@ -32,6 +32,8 @@ public class Images {
 	public static BufferedImage[] Options;
 	public static ImageIcon icon;
 	public static ImageIcon bowserIcon;
+	public static ImageIcon toadIcon;
+	
 
 	public static BufferedImage map[];
 	
@@ -891,6 +893,8 @@ public class Images {
 
 			icon = new ImageIcon(ImageIO.read(getClass().getResourceAsStream("/Sheets/icon.png")));
 			bowserIcon = new ImageIcon(ImageIO.read(getClass().getResourceAsStream("/icons/BowserIcon.png")));
+			toadIcon = new ImageIcon(ImageIO.read(getClass().getResourceAsStream("/Sheets/ToadIcon.png")));
+			
 
 			if (processPixelSheet) {
 				PrintCropList("FireSkill", "fireSkillSheet", "/EffectCrops/fireSkillCropCoords.txt", 50, 50);
