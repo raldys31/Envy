@@ -15,6 +15,8 @@ public class Toad extends BaseStaticEntity {
 	int width, height;
 	private int index=0;
 	private int index2=0;
+	private int count;
+	public static boolean completedQuest = false, selectedQuests =false;
 	
 	public Toad(Handler handler, int xPosition, int yPosition) {
 		super(handler, xPosition, yPosition);
@@ -40,38 +42,62 @@ public class Toad extends BaseStaticEntity {
 				g2.draw(getCollision());
 			}
 			checkCollision();
+			checkQuest();
 		}
 		
 	}
 	
 	private void checkCollision() {
 		int selected;
-		if(inArea()) {
-			if(index2==0) {
-				if(handler.getEntityManager().getPlayer().getSkill().equals("none")) {
-					selected = this.handler.showOptionMessage("Want a skill boi?", "Quest", Images.toadIcon);
-					index2=1;
+		if(inArea() && count==3) {
+			count=0;
+				if(!completedQuest) {
+					selected = this.handler.showOptionMessage("Want a fire skill boi?", "Quest", Images.toadIcon);
 					if(selected == 0) {
 						this.handler.showMessage("Defeat en enemy on this town", "Quest", Images.toadIcon);
+						selectedQuests=true;
 					}
-					handler.setYInWorldDisplacement(handler.getYInWorldDisplacement()-150);
-				}
-				else if(handler.getEntityManager().getPlayer().getSkill().equals("IceSkill")) {
-					selected = this.handler.showOptionMessage("Want a different skill boi?", "Quest", Images.toadIcon);
-					index2=1;
-					if(selected == 0) {
-						this.handler.showMessage("Defeat en enemy on this town to gain FireSkill", "Quest", Images.toadIcon);
+					move();
+					if(selectedQuests) {
+						this.handler.showMessage("Complete the quest boi!!!", "Quest", Images.toadIcon);
 					}
-					handler.setYInWorldDisplacement(handler.getYInWorldDisplacement()-150);
 				}
-				else if(index==0) {
-					this.handler.showMessage("Defeated an enemy!", "CONGRATS!!", Images.toadIcon);
-					handler.setYInWorldDisplacement(handler.getYInWorldDisplacement()-150);
+				
+				
+				if(completedQuest&&index==0) {
+					this.handler.showMessage("You gained FireSkill", "Quest Completed.", Images.toadIcon);
+					move();
 					index=1;
 				}
+		}
+		else if(inArea()&&count<3){
+			count++;
+		}
+	}
+	
+	private void move() {
+		switch(handler.getEntityManager().getPlayer().getFacing()) {
+		case "Up":
+			this.handler.setYInWorldDisplacement(this.handler.getYInWorldDisplacement()-150);
+			break;
+		case "Right":
+			this.handler.setXInWorldDisplacement(this.handler.getXInWorldDisplacement()+50);
+			break;
+		case "Left":
+			this.handler.setXInWorldDisplacement(this.handler.getXInWorldDisplacement()-50);
+			break;
+		}
+	}
+	
+	private void checkQuest() {
+		if(completedQuest) {
+			if(index2==0) {
+				handler.getEntityManager().getPlayer().setSkill("FireSkill");
+				System.out.println(handler.getEntityManager().getPlayer().getSkill());
+				index2=1;
 			}
 		}
-		else index2=0; index=0;
+			
 	}
 	
 	@Override

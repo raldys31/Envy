@@ -1,6 +1,8 @@
 package Game.GameStates;
 
 import Game.Entities.Dynamics.BaseHostileEntity;
+import Game.Entities.Statics.Toad;
+import Game.World.InWorldAreas.TownArea;
 import Main.GameSetUp;
 import Main.Handler;
 
@@ -225,8 +227,16 @@ public class FightState extends InWorldState{
             	}
 
             	//completed at least one quest
-            	if(handler.getEntityManager().getPlayer().getSkill().equals("none")) {
-            		handler.getEntityManager().getPlayer().setSkill("IceSkill");
+            	if(!TownArea.isInTown) {
+            		if(handler.getEntityManager().getPlayer().getSkill().equals("none")) {
+            			handler.getEntityManager().getPlayer().setSkill("IceSkill");
+            		}
+            	}
+            	
+            	if(TownArea.isInTown) {
+            		if(Toad.selectedQuests) {
+            			Toad.completedQuest = true;
+            		}
             	}
 
 

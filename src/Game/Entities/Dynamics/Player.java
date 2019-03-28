@@ -30,8 +30,6 @@ public class Player extends BaseDynamicEntity implements Fighter {
 	private Rectangle player;
 	private boolean canMove;
 	public static boolean checkInWorld;
-	
-	private int index = 0, index2=0;
 
 	public static final int InMapWidthFrontAndBack = 15 * 3, InMapHeightFront = 27 * 3, InMapHeightBack = 23 * 3,
 			InMapWidthSideways = 13 * 3, InMapHeightSideways = 22 * 3, 
@@ -351,29 +349,6 @@ public class Player extends BaseDynamicEntity implements Fighter {
 			}
 		}
 	}
-
-	private void checkForEntities() {
-		for(BaseEntity e: this.handler.getEntityManager().getEntities()) {
-			if(e instanceof Bowser) {
-				if(e.getCollision().intersects(getCollision())) {
-					if(index2==0) {
-						if(getSkill().equals("none")) {
-							this.handler.showMessage("Need a skill brooo!", "Need Skill", Images.bowserIcon); //el metodo esta en el handler para asi usarlo en cualquier state ;)
-							index2 = 1;
-							PushPlayerBack();
-						}
-						else if(index==0){
-							e.setXOffset(1638+80);
-							this.handler.showMessage("CONGRATS!!", "Got a Skill", Images.bowserIcon);
-							index = 1;
-						}
-					}
-				}
-				else index2=0;
-			}
-		}
-	}
-	
 	
 
 	/**
@@ -418,6 +393,10 @@ public class Player extends BaseDynamicEntity implements Fighter {
 	@Override
 	public Rectangle getCollision() {
 		return player;
+	}
+	
+	public String getFacing() {
+		return this.facing;
 	}
 
 	/**
@@ -467,6 +446,10 @@ public class Player extends BaseDynamicEntity implements Fighter {
 		this.currentHeight = newHeight;
 	}
 
+	public void getPushedPlayer() {
+		this.PushPlayerBack();
+	}
+	
 	// GETTERS AND SETTERS FOR FIGHT STATS
 
 	double health = 200, mana = 100, xp = 0, lvl = 1, defense = 16, str = 10, intl = 25, mr = 12, cons = 20, acc = 12, evs = 4,
