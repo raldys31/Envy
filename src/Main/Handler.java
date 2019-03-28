@@ -34,7 +34,7 @@ public class Handler {
 	private WorldManager worldManager;
 
 	int xOverWorldDisplacement, yOverWorldDisplacement,
-		xInWorldDisplacement, yInWorldDisplacement;
+	xInWorldDisplacement, yInWorldDisplacement;
 
 	private String Area="None";
 
@@ -42,11 +42,11 @@ public class Handler {
 
 	public Handler() {
 
-/*      If your game display seems zoomed out, usually the case on 4k screens, 
- * 		remove the comments on the following two lines of code and comment out the height and width declaration in this method*/
+		/*      If your game display seems zoomed out, usually the case on 4k screens, 
+		 * 		remove the comments on the following two lines of code and comment out the height and width declaration in this method*/
 		//height =( DEFAULTHEIGHT/1080)*1080;
 		//width = (DEFAULTWIDTH/1920)*1920;
-		
+
 		height = DEFAULTHEIGHT;
 		width = DEFAULTWIDTH;
 
@@ -92,7 +92,7 @@ public class Handler {
 	public WorldManager getWorldManager() {
 		return worldManager;
 	}
-	
+
 	// For OverWorld Map Movement
 	public void setXDisplacement(int xDis) {
 		this.xOverWorldDisplacement = xDis;
@@ -109,7 +109,7 @@ public class Handler {
 	public int getYDisplacement() {
 		return this.yOverWorldDisplacement;
 	}
-	
+
 	// For InWorld Map Movement
 	public int getXInWorldDisplacement() {
 		return xInWorldDisplacement;
@@ -134,7 +134,7 @@ public class Handler {
 	public void setArea(String area) {
 		Area = area;
 	}
-	
+
 	public void showMessage(String message, String title, Icon icon) {
 		JOptionPane.showMessageDialog(null, message, title, 
 				JOptionPane.INFORMATION_MESSAGE, icon);
@@ -143,11 +143,15 @@ public class Handler {
 	public int showOptionMessage(String message, Icon icon) {
 		return JOptionPane.showConfirmDialog(null, message);
 	}
+	public int showOptionMessage(String message, String title, Icon icon) {
+		return JOptionPane.showOptionDialog(null, message, title, JOptionPane.YES_NO_OPTION,
+				JOptionPane.QUESTION_MESSAGE, icon, null, null);
+	}
 
 	public BaseHostileEntity newEnemy(BufferedImage[] images,Handler handler, int xPosition, int yPosition, String state, String name, String area,
-									  String typeOfEnemy, double hp, double mana, double xp, double lvl, double str, double def,
-									  double intl, double mr, double cons, double acc, double evs, double initiative,
-									  String Class, String Skill, String[] buffs, String[] debuffs){
+			String typeOfEnemy, double hp, double mana, double xp, double lvl, double str, double def,
+			double intl, double mr, double cons, double acc, double evs, double initiative,
+			String Class, String Skill, String[] buffs, String[] debuffs){
 		if(typeOfEnemy.equals("Scyther")) {
 			Scyther n = new Scyther(handler, xPosition, yPosition, state, name, area,images);
 			n.setAcc(acc);
@@ -158,7 +162,7 @@ public class Handler {
 			n.setDefense(def);
 			n.setEvs(evs);
 			n.setHealth(hp);
-            n.setMaxHealth(hp);
+			n.setMaxHealth(hp);
 			n.setInitiative(initiative);
 			n.setIntl(intl);
 			n.setMr(mr);
@@ -179,7 +183,7 @@ public class Handler {
 			n.setDefense(def);
 			n.setEvs(evs);
 			n.setHealth(hp);
-            n.setMaxHealth(hp);
+			n.setMaxHealth(hp);
 			n.setInitiative(initiative);
 			n.setIntl(intl);
 			n.setMr(mr);
@@ -189,7 +193,7 @@ public class Handler {
 			n.setStr(str);
 			n.setXp(xp);
 			return n;
-			}
+		}
 		else if(typeOfEnemy.equals("Mewtwo")) {
 			Mewtwo n = new Mewtwo(handler, xPosition, yPosition, state, name, area,images);
 			n.setAcc(acc);
@@ -200,7 +204,7 @@ public class Handler {
 			n.setDefense(def);
 			n.setEvs(evs);
 			n.setHealth(hp);
-            n.setMaxHealth(hp);
+			n.setMaxHealth(hp);
 			n.setInitiative(initiative);
 			n.setIntl(intl);
 			n.setMr(mr);
@@ -210,7 +214,7 @@ public class Handler {
 			n.setStr(str);
 			n.setXp(xp);
 			return n;
-			}
+		}
 		else{//default
 			EnemyOne n = new EnemyOne(handler, xPosition, yPosition, state, name, area,images);
 			n.setAcc(acc);
@@ -221,7 +225,7 @@ public class Handler {
 			n.setDefense(def);
 			n.setEvs(evs);
 			n.setHealth(hp);
-            n.setMaxHealth(hp);
+			n.setMaxHealth(hp);
 			n.setInitiative(initiative);
 			n.setIntl(intl);
 			n.setMr(mr);

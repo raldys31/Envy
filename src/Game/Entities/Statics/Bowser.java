@@ -13,6 +13,8 @@ public class Bowser extends BaseStaticEntity {
 	
 	Rectangle collision;
 	int width, height;
+	private int index=0;
+	private int index2;
 	
 	public Bowser(Handler handler, int xPosition, int yPosition) {
 		super(handler, xPosition, yPosition);
@@ -38,7 +40,32 @@ public class Bowser extends BaseStaticEntity {
 		if (GameSetUp.DEBUGMODE) {
 			g2.draw(getCollision());
 		}
+		checkCollisions();
 
+	}
+	
+	private void checkCollisions() {
+		if(inArea()) {
+			
+			if(index2==0) {
+					if(handler.getEntityManager().getPlayer().getSkill().equals("none")) {
+						this.handler.showMessage("Need a skill brooo!", "Need Skill", Images.bowserIcon);
+						index2=1;
+						handler.setYDisplacement(handler.getYDisplacement() - 75);
+					}
+					else if(index==0){
+						this.setXOffset(1638+80);
+						this.handler.showMessage("CONGRATS!!", "Got a Skill", Images.bowserIcon);
+						index = 1;
+					}
+			}
+			
+		}
+		else index2=0;
+	}
+
+	private boolean inArea() {
+		return handler.getEntityManager().getPlayer().getCollision().intersects(getCollision());
 	}
 	
 	@Override
