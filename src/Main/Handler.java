@@ -140,8 +140,9 @@ public class Handler {
 				JOptionPane.INFORMATION_MESSAGE, icon);
 	}
 
-	public int showOptionMessage(String message) {
-		return JOptionPane.showConfirmDialog(null, message);
+	public int showOptionMessage(String message, String title, Icon icon) {
+		return JOptionPane.showOptionDialog(null, message, title, JOptionPane.YES_NO_OPTION,
+				JOptionPane.QUESTION_MESSAGE, icon, null, null);
 	}
 
 	public BaseHostileEntity newEnemy(BufferedImage[] images,Handler handler, int xPosition, int yPosition, String state, String name, String area,

@@ -158,7 +158,7 @@ public class Player extends BaseDynamicEntity implements Fighter {
 		}
 
 		CheckForWalls();
-		checkForEntities();
+		//checkForEntities();
 
 		if (handler.getKeyManager().down & canMove) {
 			Move(false, -speed);
