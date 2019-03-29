@@ -53,16 +53,16 @@ public class Toad extends BaseStaticEntity {
 		if(inArea() && count==3) {
 			count=0;
 			if(!completedQuest) {
-				selected = this.handler.showOptionMessage("Want a skill boi?", "Quest", Images.toadIcon);
+				selected = this.handler.showOptionMessage("Do you want to get a skill?", "Quest", Images.toadIcon);
 				if(selected == 0) {
-					this.handler.showMessage("Defeat en enemy on this town", "Quest", Images.toadIcon);
+					this.handler.showMessage("Defeat an enemy on this town.", "Quest", Images.toadIcon);
 					selectedQuests=true;
 				}
 				move();
 			}
 
 			if(completedQuest&&index==0) {
-				this.handler.showMessage("You gained IceSkill", "Quest Completed.", Images.toadIcon);
+				this.handler.showMessage("You gained IceSkill.", "Quest Completed.", Images.toadIcon);
 				move();
 				index=1;
 			}
