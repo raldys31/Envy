@@ -140,9 +140,6 @@ public class Handler {
 				JOptionPane.INFORMATION_MESSAGE, icon);
 	}
 
-	public int showOptionMessage(String message, Icon icon) {
-		return JOptionPane.showConfirmDialog(null, message);
-	}
 	public int showOptionMessage(String message, String title, Icon icon) {
 		return JOptionPane.showOptionDialog(null, message, title, JOptionPane.YES_NO_OPTION,
 				JOptionPane.QUESTION_MESSAGE, icon, null, null);
