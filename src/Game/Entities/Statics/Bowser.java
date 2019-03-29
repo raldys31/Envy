@@ -47,7 +47,7 @@ public class Bowser extends BaseStaticEntity {
 		if(inArea() && count==3) {
 			count=0;
 					if(handler.getEntityManager().getPlayer().getSkill().equals("none")) {
-						this.handler.showMessage("Need a skill brooo!", "Need Skill", Images.bowserIcon);
+						this.handler.showMessage("You need a skill to enter to the cave. Hint: Go to town.", "Need Skill", Images.bowserIcon);
 						switch(handler.getEntityManager().getPlayer().getFacing()) {
 						case "Up":
 							this.handler.setYDisplacement(this.handler.getYDisplacement()-150);
@@ -63,7 +63,7 @@ public class Bowser extends BaseStaticEntity {
 					else if(index==0){ 
 						index=1;
 						this.setXOffset(1638+80);
-						this.handler.showMessage("CONGRATS!!", "Got a Skill, you may pass", Images.bowserIcon);
+						this.handler.showMessage("Congratulations!", "You got a skill. Now you can pass.", Images.bowserIcon);
 						
 					}
 		}
